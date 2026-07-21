@@ -59,7 +59,7 @@ const PRODUCTS = [
   { id: 'FS-004', cat: 'fs', name: 'Spill Containment Berm', size: 'Collapsible, 6ft x 6ft', price: 5400, stock: 'Low Stock', specs: [['Footprint', '6ft x 6ft'], ['Capacity', '~950 liters'], ['Material', 'PVC-coated fabric'], ['Setup', 'Foldable, no tools']] },
 ];
 
-const formatPrice = (n) => `\u20B1${n.toLocaleString('en-PH')}`;
+const formatPrice = (n) => `\u20A6${n.toLocaleString('en-NG')}`;
 
 function Fonts() {
   return (
