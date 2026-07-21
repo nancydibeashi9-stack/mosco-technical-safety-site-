@@ -26,44 +26,22 @@ const FONT_MONO = "'JetBrains Mono', monospace";
 
 /* ---------------------------------- DATA ---------------------------------- */
 const CATEGORIES = [
-  { id: 'gd', code: 'GD', name: 'Gas Detection & Calibration', icon: Gauge, desc: 'Calibration cylinders, detectors & sensor heads' },
-  { id: 'fh', code: 'FH', name: 'Fluid Handling & Pumps', icon: Droplet, desc: 'Drum pumps, transfer equipment & fittings' },
-  { id: 'ppe', code: 'PPE', name: 'Personal Protective Equipment', icon: HardHat, desc: 'Respirators, helmets, gloves & eyewear' },
-  { id: 'ht', code: 'HT', name: 'Hand & Power Tools', icon: Wrench, desc: 'Insulated, non-sparking & precision tools' },
-  { id: 'ss', code: 'SS', name: 'Safety Signage & Barricades', icon: AlertTriangle, desc: 'Warning signs, cones & lockout kits' },
-  { id: 'fs', code: 'FS', name: 'Fire Safety Equipment', icon: Flame, desc: 'Extinguishers, blankets & containment' },
+  { id: 'fs', code: 'FS', name: 'Fire Safety Equipment', icon: Flame, desc: 'Helmets, suppression systems & fire gear' },
+  { id: 'ig', code: 'IG', name: 'Instrumentation & Gauges', icon: Gauge, desc: 'Pressure gauges & calibration instruments' },
+  { id: 'mt', code: 'MT', name: 'Measuring & Hand Tools', icon: Wrench, desc: 'Calipers, tapes, levels & fitting tools' },
+  { id: 'pf', code: 'PF', name: 'Pipe Fittings & Fluid Handling', icon: Droplet, desc: 'Flanges, strapping & pipe hardware' },
 ];
 
 const PRODUCTS = [
-  { id: 'GD-001', cat: 'gd', name: 'Multi-Gas Calibration Cylinder', size: '58L, 4-Gas Mix', price: 4850, stock: 'In Stock', specs: [['Volume', '58 Liters'], ['Gas Mix', 'CH4 / O2 / CO / H2S'], ['Valve', 'CGA-600'], ['Shelf Life', '24 months']] },
-  { id: 'GD-002', cat: 'gd', name: 'Portable 4-Gas Detector', size: 'Handheld, Diffusion', price: 18500, stock: 'In Stock', specs: [['Sensors', 'LEL / O2 / CO / H2S'], ['Battery', '12-hr Li-ion'], ['Alarm', 'Audible + Vibration'], ['Rating', 'IP67']] },
-  { id: 'GD-003', cat: 'gd', name: 'Gas Detector Calibration Kit', size: 'Complete Bench Set', price: 6200, stock: 'In Stock', specs: [['Includes', 'Regulator + Hose + Cap'], ['Flow Rate', '0.5 LPM'], ['Compatibility', 'Universal fit'], ['Case', 'Hard-shell carry']] },
-  { id: 'GD-004', cat: 'gd', name: 'Fixed Gas Detection Sensor Head', size: 'Wall-Mount, Single-Point', price: 9750, stock: 'Low Stock', specs: [['Detection', 'Combustible Gas'], ['Output', '4-20mA'], ['Housing', 'Explosion-proof'], ['Mount', 'Wall/Pole bracket']] },
-
-  { id: 'FH-001', cat: 'fh', name: 'Rotary Chemical Drum Pump', size: '55-Gal Drum Fit', price: 3200, stock: 'In Stock', specs: [['Material', 'Polypropylene'], ['Flow', '20 L/min'], ['Bung Size', '2 inch NPT'], ['Chemical', 'Acid/Alkali safe']] },
-  { id: 'FH-002', cat: 'fh', name: 'Pneumatic Diaphragm Transfer Pump', size: '1 inch Air-Operated', price: 14900, stock: 'In Stock', specs: [['Drive', 'Compressed Air'], ['Max Flow', '150 L/min'], ['Body', 'Cast Aluminum'], ['Seal', 'PTFE']] },
-  { id: 'FH-003', cat: 'fh', name: 'Drum Faucet & Bung Adapter Set', size: '2in & 3/4in Combo', price: 1150, stock: 'In Stock', specs: [['Material', 'Nylon'], ['Thread', '2in / 3/4in NPT'], ['Use', 'Non-corrosive liquids'], ['Set', '3-piece']] },
-  { id: 'FH-004', cat: 'fh', name: 'Anti-Static Grounding Clamp Kit', size: '10m Cable, Dual Clamp', price: 950, stock: 'In Stock', specs: [['Cable Length', '10 meters'], ['Resistance', '<1 Ohm'], ['Clamp', 'C-type brass'], ['Use', 'Drum-to-drum transfer']] },
-
-  { id: 'PPE-001', cat: 'ppe', name: 'Full-Face Respirator Mask', size: 'Medium/Large', price: 2450, stock: 'In Stock', specs: [['Filter', 'Dual cartridge P100'], ['Lens', 'Polycarbonate'], ['Seal', 'Silicone face seal'], ['Standard', 'NIOSH approved']] },
-  { id: 'PPE-002', cat: 'ppe', name: 'Class E Safety Helmet', size: 'One Size, Ratchet Fit', price: 780, stock: 'In Stock', specs: [['Rating', 'ANSI Z89.1 Class E'], ['Shell', 'HDPE'], ['Suspension', '6-point ratchet'], ['Color', 'Hi-vis orange']] },
-  { id: 'PPE-003', cat: 'ppe', name: 'Chemical-Resistant Gauntlet Gloves', size: 'Size L, 18-inch', price: 620, stock: 'In Stock', specs: [['Material', 'Neoprene/Nitrile'], ['Length', '18 inches'], ['Grip', 'Textured palm'], ['Use', 'Acid & solvent handling']] },
-  { id: 'PPE-004', cat: 'ppe', name: 'Safety Goggles, Anti-Fog', size: 'Indirect Vent', price: 395, stock: 'In Stock', specs: [['Lens', 'Polycarbonate, clear'], ['Coating', 'Anti-fog / anti-scratch'], ['Fit', 'Over-glasses compatible'], ['Standard', 'ANSI Z87.1']] },
-
-  { id: 'HT-001', cat: 'ht', name: 'Insulated Combination Wrench Set', size: '8-piece, 1000V Rated', price: 3650, stock: 'In Stock', specs: [['Rating', '1000V insulated'], ['Sizes', '8-19mm'], ['Material', 'Chrome vanadium'], ['Case', 'Roll-up pouch']] },
-  { id: 'HT-002', cat: 'ht', name: 'Non-Sparking Brass Hammer', size: '2 lb Head', price: 1890, stock: 'In Stock', specs: [['Material', 'Beryllium copper'], ['Weight', '2 lb head'], ['Handle', 'Fiberglass'], ['Use', 'Hazardous area rated']] },
-  { id: 'HT-003', cat: 'ht', name: 'Torque Wrench, 1/2" Drive', size: '20-150 Nm Range', price: 4200, stock: 'In Stock', specs: [['Drive', '1/2 inch'], ['Range', '20-150 Nm'], ['Accuracy', '±4%'], ['Case', 'Calibration certificate incl.']] },
-  { id: 'HT-004', cat: 'ht', name: 'Cordless Impact Driver Kit', size: '18V, 2-Battery', price: 6900, stock: 'Low Stock', specs: [['Voltage', '18V Li-ion'], ['Torque', '180 Nm max'], ['Batteries', '2x included'], ['Case', 'Hard carry case']] },
-
-  { id: 'SS-001', cat: 'ss', name: 'Retractable Safety Barrier Belt', size: 'Post + 15ft Belt', price: 1450, stock: 'In Stock', specs: [['Belt Length', '15 feet'], ['Post', 'Steel, weighted base'], ['Belt Color', 'Yellow/Black chevron'], ['Use', 'Indoor/outdoor']] },
-  { id: 'SS-002', cat: 'ss', name: 'Hazard Warning Sign Set', size: '10-piece Assorted', price: 890, stock: 'In Stock', specs: [['Material', 'Rigid PVC'], ['Size', '10x14 inches'], ['Set', '10 assorted messages'], ['Mount', 'Pre-drilled holes']] },
-  { id: 'SS-003', cat: 'ss', name: 'Traffic Safety Cone', size: '28 inch, Reflective', price: 310, stock: 'In Stock', specs: [['Height', '28 inches'], ['Base', 'Weighted PVC'], ['Collar', 'Reflective, 2-band'], ['Color', 'Safety orange']] },
-  { id: 'SS-004', cat: 'ss', name: 'Lockout/Tagout Station Kit', size: 'Wall-Mount, 40-piece', price: 2750, stock: 'In Stock', specs: [['Includes', 'Locks, tags, hasps'], ['Board', 'Wall-mount cabinet'], ['Pieces', '40-piece kit'], ['Standard', 'OSHA compliant']] },
-
-  { id: 'FS-001', cat: 'fs', name: 'ABC Dry Chemical Fire Extinguisher', size: '10 lb Rechargeable', price: 1650, stock: 'In Stock', specs: [['Capacity', '10 lb'], ['Rating', 'ABC multi-class'], ['Gauge', 'Pressure indicator'], ['Bracket', 'Wall bracket incl.']] },
-  { id: 'FS-002', cat: 'fs', name: 'Fire Blanket, Emergency Grade', size: '1.8m x 1.8m', price: 720, stock: 'In Stock', specs: [['Size', '1.8 x 1.8 meters'], ['Material', 'Fiberglass weave'], ['Case', 'Quick-release pouch'], ['Standard', 'EN 1869 rated']] },
-  { id: 'FS-003', cat: 'fs', name: 'Explosion-Proof LED Work Light', size: 'Rechargeable, 5000lm', price: 3100, stock: 'In Stock', specs: [['Output', '5000 lumens'], ['Rating', 'ATEX Zone 1'], ['Battery', 'Rechargeable, 8-hr'], ['Housing', 'Impact-resistant']] },
-  { id: 'FS-004', cat: 'fs', name: 'Spill Containment Berm', size: 'Collapsible, 6ft x 6ft', price: 5400, stock: 'Low Stock', specs: [['Footprint', '6ft x 6ft'], ['Capacity', '~950 liters'], ['Material', 'PVC-coated fabric'], ['Setup', 'Foldable, no tools']] },
+  { id: 'FS-001', cat: 'fs', name: "Firefighter Safety Helmet with Heat-Reflective Neck Shield", size: 'Yellow Shell, Adjustable', price: 55000, stock: 'In Stock', specs: [['Shell Material', 'High-impact polymer'], ['Neck Shield', 'Aluminized heat-reflective foil'], ['Chin Strap', 'Adjustable buckle'], ['Use', 'Firefighting & high-heat environments']] },
+  { id: 'FS-002', cat: 'fs', name: 'Multi-Port Fire Suppression Distribution Manifold', size: 'Multi-Outlet, Threaded Ports', price: 550000, stock: 'In Stock', specs: [['Body', 'Steel, powder-coated'], ['Outlets', 'Multiple threaded ports'], ['Mounting', 'Bracket-mounted stand'], ['Use', 'Sprinkler / hose line distribution']] },
+  { id: 'IG-001', cat: 'ig', name: 'Industrial Pressure Gauge', size: '0-10 kg/cm², Flanged Stem', price: 40000, stock: 'In Stock', specs: [['Range', '0-10 kg/cm²'], ['Dial', 'Analog, glass face'], ['Mount', 'Flanged stem'], ['Use', 'Process pressure monitoring']] },
+  { id: 'MT-001', cat: 'mt', name: 'Vernier Caliper, Large Format', size: 'Stainless Steel, Cased', price: 85000, stock: 'In Stock', specs: [['Material', 'Stainless steel'], ['Case', 'Hard carry case included'], ['Use', 'Precision measurement'], ['Scale', 'Metric / Imperial']] },
+  { id: 'MT-002', cat: 'mt', name: "Pipe Fitter's Protractor & Centering Head Level", size: '0-90° Dial, Bubble Level', price: 85000, stock: 'In Stock', specs: [['Angle Range', '0-90°'], ['Level', 'Built-in bubble vial'], ['Material', 'Aluminum alloy'], ['Use', 'Pipe alignment & cut marking']] },
+  { id: 'MT-003', cat: 'mt', name: 'Chalk Line Reel Set', size: '30m/100ft, w/ Blue Chalk', price: 20000, stock: 'In Stock', specs: [['Length', '30m / 100ft'], ['Level', 'Built-in bubble level'], ['Chalk', '115g blue chalk included'], ['Brand', 'Stanley']] },
+  { id: 'MT-004', cat: 'mt', name: 'Powerwinder 100m Long Measure Tape', size: 'Fiberglass Blade, Fast Rewind', price: 55000, stock: 'In Stock', specs: [['Length', '100m / 330ft'], ['Blade', 'Fiberglass, non-conductive'], ['Rewind', 'Powerwinder fast rewind'], ['Brand', 'Stanley']] },
+  { id: 'PF-001', cat: 'pf', name: 'Weld Neck Flange, 3-inch Class 600', size: 'Schedule 80, Carbon Steel', price: 48000, stock: 'In Stock', specs: [['Size', '3 inch'], ['Class', '600'], ['Schedule', '80'], ['Material', 'Carbon steel, A105']] },
+  { id: 'PF-002', cat: 'pf', name: 'Stainless Steel Strapping Coil', size: '1/2 inch, C204 EDP 13204', price: 35000, stock: 'In Stock', specs: [['Width', '1/2 inch'], ['Material', 'Stainless steel'], ['Part No.', 'C204 EDP 13204'], ['Use', 'Pipe & hose banding / clamping']] },
 ];
 
 const formatPrice = (n) => `\u20A6${n.toLocaleString('en-NG')}`;
@@ -220,9 +198,7 @@ export default function App() {
     <header style={{ background: C.navyDark, borderBottom: `3px solid ${C.orange}` }} className="sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
         <button onClick={() => go('home')} className="flex items-center gap-2.5">
-          <div style={{ width: 34, height: 34, background: C.orange }} className="flex items-center justify-center">
-            <Wrench size={18} color={C.white} />
-          </div>
+          <img src="/logo.jpg" alt="Mosco Technical and Safety Tools" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 4 }} />
           <div className="text-left leading-none">
             <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, color: C.white, fontWeight: 600, letterSpacing: '0.02em' }}>MOSCO</div>
             <div style={{ fontFamily: FONT_MONO, fontSize: 8.5, color: C.orange, letterSpacing: '0.15em' }}>TECHNICAL &amp; SAFETY TOOLS</div>
@@ -360,7 +336,7 @@ export default function App() {
             Equipment your crew can trust on shift <span style={{ color: C.orange }}>one.</span>
           </h1>
           <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: C.steelLight, maxWidth: 520, marginTop: 20, lineHeight: 1.6 }}>
-            Gas detection, fluid handling, PPE, and safety gear stocked and ready to ship anywhere in Nigeria. Order online, pick up, or have it delivered to site.
+            Fire safety equipment, industrial gauges, precision measuring tools, and pipe fittings stocked and ready to ship anywhere in Nigeria. Order online, pick up, or have it delivered to site.
           </p>
           <div className="flex flex-wrap gap-3 mt-9">
             <button onClick={() => go('shop')} className="px-6 py-3 flex items-center gap-2" style={{ background: C.orange, color: C.white, fontFamily: FONT_MONO, fontSize: 12.5, letterSpacing: '0.08em' }}>
@@ -642,13 +618,13 @@ export default function App() {
       </section>
       <section className="max-w-4xl mx-auto px-5 py-16">
         <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: C.charcoal, lineHeight: 1.8, marginBottom: 20 }}>
-          Mosco Technical and Safety Tools started as a field-service outfit repairing industrial equipment across Port Harcourt. After years of scrambling to source calibration gear, drum pumps, and PPE on short notice, we started stocking the parts ourselves — and eventually opened that stockroom to every plant, contractor, and safety officer who needed the same reliability we did.
+          Mosco Technical and Safety Tools supplies industrial and safety equipment to plants, contractors, and workshops across Port Harcourt and beyond. From fire safety gear to precision measuring tools and pipe fittings, we stock the equipment technical teams rely on to get the job done right.
         </p>
         <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: C.charcoal, lineHeight: 1.8, marginBottom: 20 }}>
-          Today we supply gas detection and calibration equipment, fluid handling pumps, personal protective equipment, insulated hand tools, safety signage, and fire safety gear to businesses across Rivers State and beyond. Every listing on this site reflects stock we can actually pull and ship — no ghost inventory.
+          We supply fire safety equipment, industrial gauges, precision measuring tools, and pipe fittings to businesses across Rivers State and beyond. Every listing on this site reflects stock we can actually pull and ship — no ghost inventory.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
-          {[['24+', 'Products in stock'], ['6', 'Equipment categories'], ['2-5', 'Day delivery, nationwide']].map(([num, label]) => (
+          {[['9+', 'Products in stock'], ['4', 'Equipment categories'], ['PH', 'Based in Port Harcourt']].map(([num, label]) => (
             <div key={label} style={{ borderLeft: `3px solid ${C.orange}`, paddingLeft: 16 }}>
               <div style={{ fontFamily: FONT_DISPLAY, fontSize: 34, color: C.navy, fontWeight: 600 }}>{num}</div>
               <div style={{ fontFamily: FONT_BODY, fontSize: 13, color: C.steel }}>{label}</div>
