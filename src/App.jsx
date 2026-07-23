@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import {
   Wrench, Gauge, Droplet, HardHat, AlertTriangle, Flame,
   ShoppingCart, X, Plus, Minus, Menu, ChevronRight, ChevronLeft,
-  Check, Phone, Mail, MapPin, MessageCircle, Search, ArrowRight, ShieldCheck
+  Check, Phone, Mail, MapPin, MessageCircle, Search, ArrowRight, ShieldCheck, Truck
 } from 'lucide-react';
 
 /* ---------------------------------- TOKENS ---------------------------------- */
@@ -335,13 +335,18 @@ export default function App() {
     <>
       <section className="blueprint-bg" style={{ background: C.navyDark }}>
         <div className="max-w-6xl mx-auto px-5 py-24 md:py-32">
-          <EyebrowLabel dark>Industrial Supply · Est. Manila</EyebrowLabel>
+          <EyebrowLabel dark>Industrial Supply · Port Harcourt</EyebrowLabel>
           <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 'clamp(36px,6vw,64px)', color: C.white, fontWeight: 600, lineHeight: 1.05, maxWidth: 720 }}>
-            Equipment your crew can trust on shift <span style={{ color: C.orange }}>one.</span>
+            Industrial, Technical &amp; Safety Equipment <span style={{ color: C.orange }}>You Can Trust.</span>
           </h1>
           <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: C.steelLight, maxWidth: 520, marginTop: 20, lineHeight: 1.6 }}>
-            Fire safety equipment, industrial gauges, precision measuring tools, and pipe fittings stocked and ready to ship anywhere in Nigeria. Order online, pick up, or have it delivered to site.
+            Supplying welding equipment, safety gear, industrial tools, measuring instruments, lifting equipment, and more.
           </p>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6" style={{ fontFamily: FONT_MONO, fontSize: 12.5, color: C.steelLight }}>
+            <span className="flex items-center gap-1.5"><MapPin size={14} color={C.orange} /> Mile 3, Port Harcourt</span>
+            <span className="flex items-center gap-1.5"><Truck size={14} color={C.orange} /> Nationwide Delivery</span>
+            <span className="flex items-center gap-1.5"><Phone size={14} color={C.orange} /> 0704 364 7182 | 0905 845 5496</span>
+          </div>
           <div className="flex flex-wrap gap-3 mt-9">
             <button onClick={() => go('shop')} className="px-6 py-3 flex items-center gap-2" style={{ background: C.orange, color: C.white, fontFamily: FONT_MONO, fontSize: 12.5, letterSpacing: '0.08em' }}>
               BROWSE CATALOG <ArrowRight size={15} />
