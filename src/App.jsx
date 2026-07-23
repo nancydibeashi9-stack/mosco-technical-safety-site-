@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import {
   Wrench, Gauge, Droplet, HardHat, AlertTriangle, Flame,
   ShoppingCart, X, Plus, Minus, Menu, ChevronRight, ChevronLeft,
-  Check, Phone, Mail, MapPin, MessageCircle, Search, ArrowRight, ShieldCheck, Truck
+  Check, Phone, Mail, MapPin, MessageCircle, Search, ArrowRight, ShieldCheck, Truck, Zap, Package, Ruler, Settings
 } from 'lucide-react';
 
 /* ---------------------------------- TOKENS ---------------------------------- */
@@ -26,14 +26,19 @@ const FONT_MONO = "'JetBrains Mono', monospace";
 
 /* ---------------------------------- DATA ---------------------------------- */
 const CATEGORIES = [
-  { id: 'fs', code: 'FS', name: 'Fire Safety Equipment', icon: Flame, desc: 'Helmets, suppression systems & fire gear' },
-  { id: 'ig', code: 'IG', name: 'Instrumentation & Gauges', icon: Gauge, desc: 'Pressure gauges & calibration instruments' },
-  { id: 'mt', code: 'MT', name: 'Measuring & Hand Tools', icon: Wrench, desc: 'Calipers, tapes, levels & fitting tools' },
-  { id: 'pf', code: 'PF', name: 'Pipe Fittings & Fluid Handling', icon: Droplet, desc: 'Flanges, strapping & pipe hardware' },
+  { id: 'wc', code: 'WC', name: 'Welding & Cutting Equipment', icon: Zap, desc: 'Welding machines, electrodes, cutting outfits & regulators' },
+  { id: 'ig', code: 'IG', name: 'Instrumentation & Gauges', icon: Gauge, desc: 'Pressure gauges, transmitters & calibration instruments' },
+  { id: 'pm', code: 'PM', name: 'Power Tools & Machinery', icon: Wrench, desc: 'Air compressors, angle grinders & demolition breakers' },
+  { id: 'rl', code: 'RL', name: 'Rigging & Lifting Equipment', icon: Package, desc: 'Wire rope pullers & lifting gear' },
+  { id: 'pf', code: 'PF', name: 'Pipe Fittings & Valves', icon: Droplet, desc: 'Flanges, valves, repair kits & scaffold couplers' },
+  { id: 'ppe', code: 'PPE', name: 'Personal Protective Equipment', icon: HardHat, desc: 'Helmets, boots & gloves' },
+  { id: 'mt', code: 'MT', name: 'Measuring & Hand Tools', icon: Ruler, desc: 'Calipers, tapes, levels & fitting tools' },
+  { id: 'mp', code: 'MP', name: 'Mechanical Parts & Bearings', icon: Settings, desc: 'Bearings & mechanical components' },
+  { id: 'fs', code: 'FS', name: 'Fire Safety Equipment', icon: Flame, desc: 'Suppression systems & fire safety gear' },
 ];
 
 const PRODUCTS = [
-  { id: 'FS-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260716-WA0061.jpg', cat: 'fs', name: "Firefighter Safety Helmet with Heat-Reflective Neck Shield", size: 'Yellow Shell, Adjustable', price: 55000, stock: 'In Stock', specs: [['Shell Material', 'High-impact polymer'], ['Neck Shield', 'Aluminized heat-reflective foil'], ['Chin Strap', 'Adjustable buckle'], ['Use', 'Firefighting & high-heat environments']] },
+  { id: 'FS-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260716-WA0061.jpg', cat: 'ppe', name: "Firefighter Safety Helmet with Heat-Reflective Neck Shield", size: 'Yellow Shell, Adjustable', price: 55000, stock: 'In Stock', specs: [['Shell Material', 'High-impact polymer'], ['Neck Shield', 'Aluminized heat-reflective foil'], ['Chin Strap', 'Adjustable buckle'], ['Use', 'Firefighting & high-heat environments']] },
   { id: 'FS-002', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260716-WA0066.jpg', cat: 'fs', name: 'Multi-Port Fire Suppression Distribution Manifold', size: 'Multi-Outlet, Threaded Ports', price: 550000, stock: 'In Stock', specs: [['Body', 'Steel, powder-coated'], ['Outlets', 'Multiple threaded ports'], ['Mounting', 'Bracket-mounted stand'], ['Use', 'Sprinkler / hose line distribution']] },
   { id: 'IG-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260716-WA0049.jpg', cat: 'ig', name: 'Industrial Pressure Gauge', size: '0-10 kg/cm², Flanged Stem', price: 40000, stock: 'In Stock', specs: [['Range', '0-10 kg/cm²'], ['Dial', 'Analog, glass face'], ['Mount', 'Flanged stem'], ['Use', 'Process pressure monitoring']] },
   { id: 'MT-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260711-WA0026.jpg', cat: 'mt', name: 'Vernier Caliper, Large Format', size: 'Stainless Steel, Cased', price: 85000, stock: 'In Stock', specs: [['Material', 'Stainless steel'], ['Case', 'Hard carry case included'], ['Use', 'Precision measurement'], ['Scale', 'Metric / Imperial']] },
