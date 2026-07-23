@@ -33,15 +33,15 @@ const CATEGORIES = [
 ];
 
 const PRODUCTS = [
-  { id: 'FS-001', cat: 'fs', name: "Firefighter Safety Helmet with Heat-Reflective Neck Shield", size: 'Yellow Shell, Adjustable', price: 55000, stock: 'In Stock', specs: [['Shell Material', 'High-impact polymer'], ['Neck Shield', 'Aluminized heat-reflective foil'], ['Chin Strap', 'Adjustable buckle'], ['Use', 'Firefighting & high-heat environments']] },
-  { id: 'FS-002', cat: 'fs', name: 'Multi-Port Fire Suppression Distribution Manifold', size: 'Multi-Outlet, Threaded Ports', price: 550000, stock: 'In Stock', specs: [['Body', 'Steel, powder-coated'], ['Outlets', 'Multiple threaded ports'], ['Mounting', 'Bracket-mounted stand'], ['Use', 'Sprinkler / hose line distribution']] },
-  { id: 'IG-001', cat: 'ig', name: 'Industrial Pressure Gauge', size: '0-10 kg/cm², Flanged Stem', price: 40000, stock: 'In Stock', specs: [['Range', '0-10 kg/cm²'], ['Dial', 'Analog, glass face'], ['Mount', 'Flanged stem'], ['Use', 'Process pressure monitoring']] },
-  { id: 'MT-001', cat: 'mt', name: 'Vernier Caliper, Large Format', size: 'Stainless Steel, Cased', price: 85000, stock: 'In Stock', specs: [['Material', 'Stainless steel'], ['Case', 'Hard carry case included'], ['Use', 'Precision measurement'], ['Scale', 'Metric / Imperial']] },
-  { id: 'MT-002', cat: 'mt', name: "Pipe Fitter's Protractor & Centering Head Level", size: '0-90° Dial, Bubble Level', price: 85000, stock: 'In Stock', specs: [['Angle Range', '0-90°'], ['Level', 'Built-in bubble vial'], ['Material', 'Aluminum alloy'], ['Use', 'Pipe alignment & cut marking']] },
-  { id: 'MT-003', cat: 'mt', name: 'Chalk Line Reel Set', size: '30m/100ft, w/ Blue Chalk', price: 20000, stock: 'In Stock', specs: [['Length', '30m / 100ft'], ['Level', 'Built-in bubble level'], ['Chalk', '115g blue chalk included'], ['Brand', 'Stanley']] },
-  { id: 'MT-004', cat: 'mt', name: 'Powerwinder 100m Long Measure Tape', size: 'Fiberglass Blade, Fast Rewind', price: 55000, stock: 'In Stock', specs: [['Length', '100m / 330ft'], ['Blade', 'Fiberglass, non-conductive'], ['Rewind', 'Powerwinder fast rewind'], ['Brand', 'Stanley']] },
-  { id: 'PF-001', cat: 'pf', name: 'Weld Neck Flange, 3-inch Class 600', size: 'Schedule 80, Carbon Steel', price: 48000, stock: 'In Stock', specs: [['Size', '3 inch'], ['Class', '600'], ['Schedule', '80'], ['Material', 'Carbon steel, A105']] },
-  { id: 'PF-002', cat: 'pf', name: 'Stainless Steel Strapping Coil', size: '1/2 inch, C204 EDP 13204', price: 35000, stock: 'In Stock', specs: [['Width', '1/2 inch'], ['Material', 'Stainless steel'], ['Part No.', 'C204 EDP 13204'], ['Use', 'Pipe & hose banding / clamping']] },
+  { id: 'FS-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260716-WA0061.jpg', cat: 'fs', name: "Firefighter Safety Helmet with Heat-Reflective Neck Shield", size: 'Yellow Shell, Adjustable', price: 55000, stock: 'In Stock', specs: [['Shell Material', 'High-impact polymer'], ['Neck Shield', 'Aluminized heat-reflective foil'], ['Chin Strap', 'Adjustable buckle'], ['Use', 'Firefighting & high-heat environments']] },
+  { id: 'FS-002', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260716-WA0066.jpg', cat: 'fs', name: 'Multi-Port Fire Suppression Distribution Manifold', size: 'Multi-Outlet, Threaded Ports', price: 550000, stock: 'In Stock', specs: [['Body', 'Steel, powder-coated'], ['Outlets', 'Multiple threaded ports'], ['Mounting', 'Bracket-mounted stand'], ['Use', 'Sprinkler / hose line distribution']] },
+  { id: 'IG-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260716-WA0049.jpg', cat: 'ig', name: 'Industrial Pressure Gauge', size: '0-10 kg/cm², Flanged Stem', price: 40000, stock: 'In Stock', specs: [['Range', '0-10 kg/cm²'], ['Dial', 'Analog, glass face'], ['Mount', 'Flanged stem'], ['Use', 'Process pressure monitoring']] },
+  { id: 'MT-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260711-WA0026.jpg', cat: 'mt', name: 'Vernier Caliper, Large Format', size: 'Stainless Steel, Cased', price: 85000, stock: 'In Stock', specs: [['Material', 'Stainless steel'], ['Case', 'Hard carry case included'], ['Use', 'Precision measurement'], ['Scale', 'Metric / Imperial']] },
+  { id: 'MT-002', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260711-WA0008.jpg', cat: 'mt', name: "Pipe Fitter's Protractor & Centering Head Level", size: '0-90° Dial, Bubble Level', price: 85000, stock: 'In Stock', specs: [['Angle Range', '0-90°'], ['Level', 'Built-in bubble vial'], ['Material', 'Aluminum alloy'], ['Use', 'Pipe alignment & cut marking']] },
+  { id: 'MT-003', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260711-WA0036.jpg', cat: 'mt', name: 'Chalk Line Reel Set', size: '30m/100ft, w/ Blue Chalk', price: 20000, stock: 'In Stock', specs: [['Length', '30m / 100ft'], ['Level', 'Built-in bubble level'], ['Chalk', '115g blue chalk included'], ['Brand', 'Stanley']] },
+  { id: 'MT-004', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260711-WA0007.jpg', cat: 'mt', name: 'Powerwinder 100m Long Measure Tape', size: 'Fiberglass Blade, Fast Rewind', price: 55000, stock: 'In Stock', specs: [['Length', '100m / 330ft'], ['Blade', 'Fiberglass, non-conductive'], ['Rewind', 'Powerwinder fast rewind'], ['Brand', 'Stanley']] },
+  { id: 'PF-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260711-WA0014.jpg', cat: 'pf', name: 'Weld Neck Flange, 3-inch Class 600', size: 'Schedule 80, Carbon Steel', price: 48000, stock: 'In Stock', specs: [['Size', '3 inch'], ['Class', '600'], ['Schedule', '80'], ['Material', 'Carbon steel, A105']] },
+  { id: 'PF-002', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260711-WA0016.jpg', cat: 'pf', name: 'Stainless Steel Strapping Coil', size: '1/2 inch, C204 EDP 13204', price: 35000, stock: 'In Stock', specs: [['Width', '1/2 inch'], ['Material', 'Stainless steel'], ['Part No.', 'C204 EDP 13204'], ['Use', 'Pipe & hose banding / clamping']] },
 ];
 
 const formatPrice = (n) => `\u20A6${n.toLocaleString('en-NG')}`;
@@ -113,9 +113,13 @@ function ProductCard({ product, onView, onAdd }) {
       <div className="px-4 pt-3 pb-4 flex-1 flex flex-col">
         <div
           className="w-full flex items-center justify-center mb-4"
-          style={{ height: 108, background: C.navy, backgroundImage: `linear-gradient(135deg, ${C.navy}, ${C.navyDark})` }}
+          style={{ height: 108, background: C.navy, backgroundImage: `linear-gradient(135deg, ${C.navy}, ${C.navyDark})`, overflow: 'hidden' }}
         >
-          {cat && <cat.icon size={40} color={C.cream} strokeWidth={1.4} />}
+          {product.img ? (
+            <img src={product.img} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          ) : (
+            cat && <cat.icon size={40} color={C.cream} strokeWidth={1.4} />
+          )}
         </div>
         <h3 style={{ fontFamily: FONT_DISPLAY, fontWeight: 500, fontSize: 17, color: C.charcoal, lineHeight: 1.25 }}>
           {product.name}
@@ -473,8 +477,12 @@ export default function App() {
           <ChevronLeft size={14} /> BACK TO CATALOG
         </button>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div className="flex items-center justify-center" style={{ height: 360, background: C.navy, backgroundImage: `linear-gradient(135deg, ${C.navy}, ${C.navyDark})` }}>
-            {cat && <cat.icon size={90} color={C.cream} strokeWidth={1.2} />}
+          <div className="flex items-center justify-center" style={{ height: 360, background: C.navy, backgroundImage: `linear-gradient(135deg, ${C.navy}, ${C.navyDark})`, overflow: 'hidden' }}>
+            {selectedProduct.img ? (
+              <img src={selectedProduct.img} alt={selectedProduct.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            ) : (
+              cat && <cat.icon size={90} color={C.cream} strokeWidth={1.2} />
+            )}
           </div>
           <div>
             <span style={{ fontFamily: FONT_MONO, fontSize: 12, color: C.steel }}>{selectedProduct.id} · {cat?.name}</span>
