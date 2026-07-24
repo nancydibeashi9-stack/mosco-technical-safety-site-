@@ -628,7 +628,8 @@ export default function App() {const [page, setPage] = useState('home');
                   <input type="radio" name="payment" checked={form.payment === m} onChange={() => setForm({ ...form, payment: m })} />
                   <span style={{ fontFamily: FONT_BODY, fontSize: 13.5, color: C.charcoal }}>{m}</span>
                 </label>
-              ))}<div>
+              ))}
+            </div><div>
               <label style={{ fontFamily: FONT_BODY, fontSize: 12.5, color: C.charcoal }}>Order notes (optional)</label>
               <textarea value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} rows={3}
                 className="w-full mt-1 px-3 py-2.5 outline-none" style={{ border: `1px solid ${C.steelLight}`, fontFamily: FONT_BODY, fontSize: 14, background: C.paper }} />
@@ -707,8 +708,7 @@ export default function App() {const [page, setPage] = useState('home');
           ))}
         </div>
       </section>
-    </div>
-            </div>);
+    </div>);
 
   /* ------------------------ CONTACT ------------------------ */
   const Contact = () => (
@@ -753,4 +753,4 @@ export default function App() {const [page, setPage] = useState('home');
       {cartOpen && <CartDrawer />}
     </div>
   );
-                                                                                               }
+                           }
