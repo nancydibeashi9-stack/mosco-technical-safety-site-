@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from 'react';
-import logoImg from './logo.jpg';
 import {
   Wrench, Gauge, Droplet, HardHat, AlertTriangle, Flame,
   ShoppingCart, X, Plus, Minus, Menu, ChevronRight, ChevronLeft,
@@ -206,7 +205,7 @@ export default function App() {const [page, setPage] = useState('home');
     <header style={{ background: C.navyDark, borderBottom: `3px solid ${C.orange}` }} className="sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
         <button onClick={() => go('home')} className="flex items-center gap-2.5">
-          <img src={logoImg} alt="Mosco Technical and Safety Tools" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 4 }} />
+          <img src="https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/logo.jpg" alt="Mosco Technical and Safety Tools" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 4 }} />
           <div className="text-left leading-none">
             <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, color: C.white, fontWeight: 600, letterSpacing: '0.02em' }}>MOSCO</div>
             <div style={{ fontFamily: FONT_MONO, fontSize: 8.5, color: C.orange, letterSpacing: '0.15em' }}>TECHNICAL &amp; SAFETY TOOLS</div>
