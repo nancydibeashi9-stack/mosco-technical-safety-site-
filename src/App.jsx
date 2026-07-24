@@ -728,7 +728,7 @@ export default function App() {const [page, setPage] = useState('home');
       </section>
       <section className="max-w-4xl mx-auto px-5 py-16">
         <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: C.charcoal, lineHeight: 1.8, marginBottom: 20 }}>
-          Mosco Technical and Safety Tools supplies industrial and safety equipment to plants, contractors, and workshops across Port Harcourt and beyond. From welding and fire safety gear to precision measuring tools, valves, and pipe fittings, we stock the equipment technical teams rely on to get the job done right.
+          Mosco Technical and Safety Tools is a trusted supplier of industrial tools, safety equipment, welding materials, measuring instruments, and engineering accessories based in Mile 3, Port Harcourt. We serve contractors, fabrication companies, construction firms, oil and gas companies, and individual professionals across Nigeria.
         </p>
         <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: C.charcoal, lineHeight: 1.8, marginBottom: 20 }}>
           We supply welding equipment, PPE, power tools, instrumentation, lifting equipment, and pipe fittings to businesses across Rivers State and beyond. Every listing on this site reflects stock we can actually pull and ship — no ghost inventory.
