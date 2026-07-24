@@ -283,7 +283,7 @@ export default function App() {const [page, setPage] = useState('home');
           <div className="flex items-center gap-2" style={{ color: C.steelLight, fontFamily: FONT_BODY, fontSize: 13 }}><MapPin size={14} /> Building Materials, Mile 3, Port Harcourt, Rivers State</div>
           <div className="flex items-center gap-4 mt-4">
             <a href="https://wa.me/2347043647182" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><MessageCircle size={18} color={C.steelLight} /></a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook size={18} color={C.steelLight} /></a>
+            <a href="https://www.facebook.com/share/1DMgaAnADS/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook size={18} color={C.steelLight} /></a>
             <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={18} color={C.steelLight} /></a>
           </div>
         </div>
