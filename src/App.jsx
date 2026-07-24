@@ -1,8 +1,9 @@
 import React, { useState, useMemo } from 'react';
+import logoImg from './logo.jpg';
 import {
   Wrench, Gauge, Droplet, HardHat, AlertTriangle, Flame,
   ShoppingCart, X, Plus, Minus, Menu, ChevronRight, ChevronLeft,
-  Check, Phone, Mail, MapPin, MessageCircle, Search, ArrowRight, ShieldCheck, Truck, Zap, Package, Ruler, Settings
+  Check, Phone, Mail, MapPin, MessageCircle, Search, ArrowRight, ShieldCheck, Truck, Zap, Package, Ruler, Settings, Facebook, Instagram, Star, BadgeCheck
 } from 'lucide-react';
 
 /* ---------------------------------- TOKENS ---------------------------------- */
@@ -76,8 +77,7 @@ function EyebrowLabel({ children, dark }) {
   return (
     <div
       className="inline-flex items-center gap-2 px-3 py-1 mb-4"
-      style={{
-        fontFamily: FONT_MONO, fontSize: 11, letterSpacing: '0.12em',
+      style={{fontFamily: FONT_MONO, fontSize: 11, letterSpacing: '0.12em',
         color: dark ? C.cream : C.orangeDark,
         border: `1px solid ${dark ? 'rgba(243,241,234,0.35)' : C.orange}`,
       }}
@@ -156,8 +156,7 @@ function ProductCard({ product, onView, onAdd }) {
 }
 
 /* ---------------------------------- MAIN APP ---------------------------------- */
-export default function App() {
-  const [page, setPage] = useState('home');
+export default function App() {const [page, setPage] = useState('home');
   const [activeCat, setActiveCat] = useState('all');
   const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState(null);
@@ -207,7 +206,7 @@ export default function App() {
     <header style={{ background: C.navyDark, borderBottom: `3px solid ${C.orange}` }} className="sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
         <button onClick={() => go('home')} className="flex items-center gap-2.5">
-          <img src="https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/logo.jpg" alt="Mosco Technical and Safety Tools" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 4 }} />
+          <img src={logoImg} alt="Mosco Technical and Safety Tools" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 4 }} />
           <div className="text-left leading-none">
             <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, color: C.white, fontWeight: 600, letterSpacing: '0.02em' }}>MOSCO</div>
             <div style={{ fontFamily: FONT_MONO, fontSize: 8.5, color: C.orange, letterSpacing: '0.15em' }}>TECHNICAL &amp; SAFETY TOOLS</div>
@@ -236,8 +235,7 @@ export default function App() {
                 style={{ width: 17, height: 17, borderRadius: '50%', background: C.orange, color: C.white, fontSize: 10, fontFamily: FONT_MONO }}
               >
                 {cartCount}
-              </span>
-            )}
+              </span>)}
           </button>
           <button className="md:hidden p-2" onClick={() => setMenuOpen((m) => !m)} aria-label="Menu">
             <Menu size={22} color={C.white} />
@@ -284,6 +282,11 @@ export default function App() {
           <div className="flex items-center gap-2 mb-2" style={{ color: C.steelLight, fontFamily: FONT_BODY, fontSize: 13 }}><Phone size={14} /> 0704 364 7182 / 0905 845 5496</div>
           <div className="flex items-center gap-2 mb-2" style={{ color: C.steelLight, fontFamily: FONT_BODY, fontSize: 13 }}><Mail size={14} /> moscotech22@gmail.com</div>
           <div className="flex items-center gap-2" style={{ color: C.steelLight, fontFamily: FONT_BODY, fontSize: 13 }}><MapPin size={14} /> Building Materials, Mile 3, Port Harcourt, Rivers State</div>
+          <div className="flex items-center gap-4 mt-4">
+            <a href="https://wa.me/2347043647182" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><MessageCircle size={18} color={C.steelLight} /></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook size={18} color={C.steelLight} /></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={18} color={C.steelLight} /></a>
+          </div>
         </div>
       </div>
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }} className="py-4 text-center">
@@ -311,8 +314,7 @@ export default function App() {
                 <div className="flex items-center gap-2 mt-2">
                   <button onClick={() => setQty(item.id, item.qty - 1)} style={{ border: `1px solid ${C.steelLight}` }} className="w-6 h-6 flex items-center justify-center"><Minus size={12} /></button>
                   <span style={{ fontFamily: FONT_MONO, fontSize: 13 }}>{item.qty}</span>
-                  <button onClick={() => setQty(item.id, item.qty + 1)} style={{ border: `1px solid ${C.steelLight}` }} className="w-6 h-6 flex items-center justify-center"><Plus size={12} /></button>
-                  <button onClick={() => removeFromCart(item.id)} style={{ fontFamily: FONT_MONO, fontSize: 10, color: C.orangeDark }} className="ml-auto">REMOVE</button>
+                  <button onClick={() => setQty(item.id, item.qty + 1)} style={{ border: `1px solid ${C.steelLight}` }} className="w-6 h-6 flex items-center justify-center"><Plus size={12} /></button><button onClick={() => removeFromCart(item.id)} style={{ fontFamily: FONT_MONO, fontSize: 10, color: C.orangeDark }} className="ml-auto">REMOVE</button>
                 </div>
               </div>
               <div style={{ fontFamily: FONT_MONO, fontSize: 13, color: C.navy, fontWeight: 700 }}>{formatPrice(item.price * item.qty)}</div>
@@ -339,26 +341,38 @@ export default function App() {
   const Home = () => (
     <>
       <section className="blueprint-bg" style={{ background: C.navyDark }}>
-        <div className="max-w-6xl mx-auto px-5 py-24 md:py-32">
+        <div className="max-w-6xl mx-auto px-5 py-20 md:py-28">
           <EyebrowLabel dark>Industrial Supply · Port Harcourt</EyebrowLabel>
-          <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 'clamp(36px,6vw,64px)', color: C.white, fontWeight: 600, lineHeight: 1.05, maxWidth: 720 }}>
+          <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 'clamp(36px,6vw,60px)', color: C.white, fontWeight: 600, lineHeight: 1.05, maxWidth: 760 }}>
             Industrial, Technical &amp; Safety Equipment <span style={{ color: C.orange }}>You Can Trust.</span>
           </h1>
-          <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: C.steelLight, maxWidth: 520, marginTop: 20, lineHeight: 1.6 }}>
-            Supplying welding equipment, safety gear, industrial tools, measuring instruments, lifting equipment, and more.
+          <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: C.steelLight, maxWidth: 560, marginTop: 20, lineHeight: 1.6 }}>
+            Supplying quality industrial tools, welding equipment, measuring instruments, PPE, valves, gauges, lifting equipment, and engineering supplies across Nigeria.
           </p>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6" style={{ fontFamily: FONT_MONO, fontSize: 12.5, color: C.steelLight }}>
-            <span className="flex items-center gap-1.5"><MapPin size={14} color={C.orange} /> Mile 3, Port Harcourt</span>
-            <span className="flex items-center gap-1.5"><Truck size={14} color={C.orange} /> Nationwide Delivery</span>
-            <span className="flex items-center gap-1.5"><Phone size={14} color={C.orange} /> 0704 364 7182 | 0905 845 5496</span>
+
+          <div className="flex flex-wrap gap-2 mt-7">
+            {['Genuine Products', 'Nationwide Delivery', 'Bulk Supply', 'Competitive Prices', 'Fast Customer Support'].map((badge) => (
+              <span key={badge} className="inline-flex items-center gap-1.5 px-3 py-1.5" style={{ border: `1px solid rgba(243,241,234,0.25)`, fontFamily: FONT_MONO, fontSize: 11, color: C.steelLight }}>
+                <BadgeCheck size={13} color={C.orange} /> {badge}
+              </span>
+            ))}
           </div>
-          <div className="flex flex-wrap gap-3 mt-9">
+
+          <div className="flex flex-wrap gap-3 mt-8">
             <button onClick={() => go('shop')} className="px-6 py-3 flex items-center gap-2" style={{ background: C.orange, color: C.white, fontFamily: FONT_MONO, fontSize: 12.5, letterSpacing: '0.08em' }}>
-              BROWSE CATALOG <ArrowRight size={15} />
+              BROWSE PRODUCTS <ArrowRight size={15} />
             </button>
-            <button onClick={() => go('contact')} className="px-6 py-3" style={{ border: `1px solid ${C.steel}`, color: C.white, fontFamily: FONT_MONO, fontSize: 12.5, letterSpacing: '0.08em' }}>
-              REQUEST QUOTE
-            </button>
+            <a href="https://wa.me/2347043647182?text=Hi%20Mosco%2C%20I%27d%20like%20to%20request%20a%20quote." target="_blank" rel="noopener noreferrer" className="px-6 py-3 flex items-center gap-2" style={{ border: `1px solid ${C.steel}`, color: C.white, fontFamily: FONT_MONO, fontSize: 12.5, letterSpacing: '0.08em' }}>
+              <MessageCircle size={15} /> REQUEST A QUOTE ON WHATSAPP
+            </a>
+          </div>
+
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.1)', fontFamily: FONT_MONO, fontSize: 12.5, color: C.steelLight }}>
+            <span className="flex items-center gap-1.5"><MapPin size={14} color={C.orange} /> Building Materials Market, Mile 3, Port Harcourt, Rivers State, Nigeria</span>
+          </div>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-2" style={{ fontFamily: FONT_MONO, fontSize: 12.5, color: C.steelLight }}>
+            <span className="flex items-center gap-1.5"><Phone size={14} color={C.orange} /> +234 704 364 7182</span>
+            <span className="flex items-center gap-1.5"><Phone size={14} color={C.orange} /> +234 905 845 5496</span>
           </div>
         </div>
       </section>
@@ -367,7 +381,7 @@ export default function App() {
         <div className="flex items-end justify-between mb-8">
           <div>
             <EyebrowLabel>Catalog</EyebrowLabel>
-            <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: 30, color: C.charcoal, fontWeight: 600 }}>Shop by category</h2>
+            <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: 30, color: C.charcoal, fontWeight: 600 }}>Our Product Categories</h2>
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -379,8 +393,7 @@ export default function App() {
               style={{ background: C.paper, border: `1px solid ${C.steelLight}` }}
             >
               <div className="flex items-center justify-between mb-4">
-                <div style={{ width: 42, height: 42, background: C.navy }} className="flex items-center justify-center">
-                  <c.icon size={20} color={C.cream} />
+                <div style={{ width: 42, height: 42, background: C.navy }} className="flex items-center justify-center"><c.icon size={20} color={C.cream} />
                 </div>
                 <span style={{ fontFamily: FONT_MONO, fontSize: 10, color: C.steel }}>{c.code}</span>
               </div>
@@ -396,18 +409,19 @@ export default function App() {
 
       <section style={{ background: C.cream }} className="py-16">
         <div className="max-w-6xl mx-auto px-5">
-          <EyebrowLabel>Why Mosco</EyebrowLabel>
-          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, color: C.charcoal, fontWeight: 600, marginBottom: 32 }}>Built for uptime</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <EyebrowLabel>Why Choose Mosco</EyebrowLabel>
+          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, color: C.charcoal, fontWeight: 600, marginBottom: 32 }}>Why Choose Mosco?</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              [ShieldCheck, 'Certified stock', 'Every unit ships with spec sheets and calibration certificates where applicable.'],
-              [Gauge, 'Fast turnaround', 'Same-day pull for in-stock items, nationwide delivery within 2-5 business days.'],
-              [Wrench, 'Technical support', 'Our team helps you match the right part number to your actual jobsite.'],
+              [Package, 'Wide Range of Products', 'A deep catalog of industrial, technical and safety equipment under one roof.'],
+              [Truck, 'Reliable Nationwide Delivery', 'We ship anywhere in Nigeria, with fast turnaround on in-stock items.'],
+              [ShieldCheck, 'Trusted by Engineers & Contractors', 'Relied on by plants, contractors and technical teams across Rivers State.'],
+              [Zap, 'Fast Response Time', 'Quick replies on WhatsApp and phone for quotes and stock checks.'],
             ].map(([Icon, title, body], i) => (
               <div key={i}>
                 <Icon size={26} color={C.orange} />
-                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 17, color: C.charcoal, marginTop: 12, fontWeight: 500 }}>{title}</div>
-                <p style={{ fontFamily: FONT_BODY, fontSize: 13.5, color: C.steel, marginTop: 6, lineHeight: 1.6 }}>{body}</p>
+                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, color: C.charcoal, marginTop: 12, fontWeight: 500 }}>{title}</div>
+                <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: C.steel, marginTop: 6, lineHeight: 1.6 }}>{body}</p>
               </div>
             ))}
           </div>
@@ -428,6 +442,53 @@ export default function App() {
           {PRODUCTS.slice(0, 4).map((p) => (
             <ProductCard key={p.id} product={p} onView={(id) => { setSelectedId(id); go('product'); }} onAdd={addToCart} />
           ))}
+        </div>
+      </section>
+
+      <section style={{ background: C.navyDark }} className="py-14">
+        <div className="max-w-6xl mx-auto px-5">
+          <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.steelLight, letterSpacing: '0.1em' }} className="mb-6 text-center">FEATURED BRANDS WE SUPPLY</div>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+            {['Harris', 'Maxmech', 'Yawata', 'Toyo', 'Kolor Kut'].map((brand) => (
+              <span key={brand} style={{ fontFamily: FONT_DISPLAY, fontSize: 20, color: C.steelLight, fontWeight: 500, letterSpacing: '0.03em' }}>{brand}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-6xl mx-auto px-5 py-16">
+        <EyebrowLabel>What Customers Say</EyebrowLabel>
+        <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, color: C.charcoal, fontWeight: 600, marginBottom: 32 }}>Testimonials</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            ['Chuka O.', 'Site Engineer, Port Harcourt', 'Mosco always has the fitting or gauge we need in stock. Delivery to site has been fast and reliable every time.'],
+            ['Blessing A.', 'Procurement, Local Contractor', 'Good prices and genuine products. Their team on WhatsApp responds quickly whenever we need a quote.'],
+            ['Emeka N.', 'Workshop Owner', "We've bought welding equipment and PPE from Mosco for over a year now. Never disappointed with quality."],
+          ].map(([name, role, quote], i) => (
+            <div key={i} className="p-5" style={{ background: C.paper, border: `1px solid ${C.steelLight}` }}>
+              <div className="flex gap-0.5 mb-3">
+                {[1, 2, 3, 4, 5].map((n) => <Star key={n} size={14} color={C.orange} fill={C.orange} />)}
+              </div>
+              <p style={{ fontFamily: FONT_BODY, fontSize: 13.5, color: C.charcoal, lineHeight: 1.6, fontStyle: 'italic' }}>"{quote}"</p>
+              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 14, color: C.navy, marginTop: 14 }}>{name}</div>
+              <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.steel }}>{role}</div>
+            </div>))}
+        </div>
+        <p style={{ fontFamily: FONT_BODY, fontSize: 11.5, color: C.steel, marginTop: 12 }}>Sample testimonials shown — swap in real customer reviews any time.</p>
+      </section>
+
+      <section className="max-w-6xl mx-auto px-5 pb-16">
+        <EyebrowLabel>Find Us</EyebrowLabel>
+        <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, color: C.charcoal, fontWeight: 600, marginBottom: 20 }}>Our Location</h2>
+        <div style={{ border: `1px solid ${C.steelLight}` }}>
+          <iframe
+            title="Mosco Technical and Safety Tools location"
+            width="100%"
+            height="320"
+            style={{ border: 0, display: 'block' }}
+            loading="lazy"
+            src="https://www.google.com/maps?q=Building+Materials+Market,+Mile+3,+Port+Harcourt,+Rivers+State,+Nigeria&output=embed"
+          />
         </div>
       </section>
     </>
@@ -490,8 +551,7 @@ export default function App() {
           <div className="flex items-center justify-center" style={{ height: 360, background: C.navy, backgroundImage: `linear-gradient(135deg, ${C.navy}, ${C.navyDark})`, overflow: 'hidden' }}>
             {selectedProduct.img ? (
               <img src={selectedProduct.img} alt={selectedProduct.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            ) : (
-              cat && <cat.icon size={90} color={C.cream} strokeWidth={1.2} />
+            ) : (cat && <cat.icon size={90} color={C.cream} strokeWidth={1.2} />
             )}
           </div>
           <div>
@@ -568,10 +628,7 @@ export default function App() {
                   <input type="radio" name="payment" checked={form.payment === m} onChange={() => setForm({ ...form, payment: m })} />
                   <span style={{ fontFamily: FONT_BODY, fontSize: 13.5, color: C.charcoal }}>{m}</span>
                 </label>
-              ))}
-            </div>
-
-            <div>
+              ))}<div>
               <label style={{ fontFamily: FONT_BODY, fontSize: 12.5, color: C.charcoal }}>Order notes (optional)</label>
               <textarea value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} rows={3}
                 className="w-full mt-1 px-3 py-2.5 outline-none" style={{ border: `1px solid ${C.steelLight}`, fontFamily: FONT_BODY, fontSize: 14, background: C.paper }} />
@@ -636,13 +693,13 @@ export default function App() {
       </section>
       <section className="max-w-4xl mx-auto px-5 py-16">
         <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: C.charcoal, lineHeight: 1.8, marginBottom: 20 }}>
-          Mosco Technical and Safety Tools supplies industrial and safety equipment to plants, contractors, and workshops across Port Harcourt and beyond. From fire safety gear to precision measuring tools and pipe fittings, we stock the equipment technical teams rely on to get the job done right.
+          Mosco Technical and Safety Tools supplies industrial and safety equipment to plants, contractors, and workshops across Port Harcourt and beyond. From welding and fire safety gear to precision measuring tools, valves, and pipe fittings, we stock the equipment technical teams rely on to get the job done right.
         </p>
         <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: C.charcoal, lineHeight: 1.8, marginBottom: 20 }}>
-          We supply fire safety equipment, industrial gauges, precision measuring tools, and pipe fittings to businesses across Rivers State and beyond. Every listing on this site reflects stock we can actually pull and ship — no ghost inventory.
+          We supply welding equipment, PPE, power tools, instrumentation, lifting equipment, and pipe fittings to businesses across Rivers State and beyond. Every listing on this site reflects stock we can actually pull and ship — no ghost inventory.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
-          {[['9+', 'Products in stock'], ['4', 'Equipment categories'], ['PH', 'Based in Port Harcourt']].map(([num, label]) => (
+          {[['9+', 'Products in stock'], ['9', 'Equipment categories'], ['PH', 'Based in Port Harcourt']].map(([num, label]) => (
             <div key={label} style={{ borderLeft: `3px solid ${C.orange}`, paddingLeft: 16 }}>
               <div style={{ fontFamily: FONT_DISPLAY, fontSize: 34, color: C.navy, fontWeight: 600 }}>{num}</div>
               <div style={{ fontFamily: FONT_BODY, fontSize: 13, color: C.steel }}>{label}</div>
@@ -651,7 +708,7 @@ export default function App() {
         </div>
       </section>
     </div>
-  );
+            </div>);
 
   /* ------------------------ CONTACT ------------------------ */
   const Contact = () => (
@@ -696,4 +753,4 @@ export default function App() {
       {cartOpen && <CartDrawer />}
     </div>
   );
-}
+                                                                                               }
