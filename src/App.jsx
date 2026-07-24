@@ -339,7 +339,13 @@ export default function App() {const [page, setPage] = useState('home');
   /* ------------------------ HOME ------------------------ */
   const Home = () => (
     <>
-      <section className="blueprint-bg" style={{ background: C.navyDark }}>
+      <section
+  style={{
+    backgroundImage: `linear-gradient(rgba(15,36,56,0.90), rgba(15,36,56,0.94)), url('https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/hero-bg.jpg')`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
         <div className="max-w-6xl mx-auto px-5 py-20 md:py-28">
           <EyebrowLabel dark>Industrial Supply · Port Harcourt</EyebrowLabel>
           <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 'clamp(36px,6vw,60px)', color: C.white, fontWeight: 600, lineHeight: 1.05, maxWidth: 760 }}>
