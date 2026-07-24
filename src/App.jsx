@@ -450,7 +450,36 @@ export default function App() {const [page, setPage] = useState('home');
         </div>
       </section>
 
-      <section style={{ background: C.navyDark }} className="py-14">
+     <section style={{ background: C.cream }} className="py-16">
+        <div className="max-w-6xl mx-auto px-5">
+          <EyebrowLabel>What We Offer</EyebrowLabel>
+          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, color: C.charcoal, fontWeight: 600, marginBottom: 32 }}>Our Services</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              [Settings, 'Industrial Equipment Supply', 'Welding machines, power tools, gauges and more, sourced and ready to ship.'],
+              [ShieldCheck, 'Safety Equipment Supply', 'PPE, fire safety gear and protective equipment for site and workshop teams.'],
+              [Package, 'Bulk Procurement', 'Volume orders for contractors, fabricators and companies at competitive rates.'],
+              [Truck, 'Nationwide Delivery', 'We deliver anywhere in Nigeria, from Port Harcourt to your site or office.'],
+              [Search, 'Product Sourcing', "Can't find what you need listed? Tell us and we'll source it for you."],
+              [Star, 'Trusted Service', 'Reliable support and genuine products, built on repeat business from engineers and contractors.'],
+            ].map(([Icon, title, body], i) => (
+              <div key={i} className="p-5" style={{ background: C.paper, border: `1px solid ${C.steelLight}` }}>
+                <Icon size={24} color={C.orange} />
+                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, color: C.charcoal, marginTop: 12, fontWeight: 500 }}>{title}</div>
+                <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: C.steel, marginTop: 6, lineHeight: 1.6 }}>{body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3 mt-10 justify-center">
+            <a href="https://wa.me/2347043647182?text=Hi%20Mosco%2C%20I%27d%20like%20to%20request%20a%20quote." target="_blank" rel="noopener noreferrer" className="px-6 py-3 flex items-center gap-2" style={{ background: C.orange, color: C.white, fontFamily: FONT_MONO, fontSize: 12.5, letterSpacing: '0.08em' }}>
+              <MessageCircle size={15} /> CHAT ON WHATSAPP
+            </a>
+            <a href="tel:+2347043647182" className="px-6 py-3 flex items-center gap-2" style={{ border: `1px solid ${C.navy}`, color: C.navy, fontFamily: FONT_MONO, fontSize: 12.5, letterSpacing: '0.08em' }}>
+              <Phone size={15} /> CALL NOW
+            </a>
+          </div>
+        </div>
+      </section> <section style={{ background: C.navyDark }} className="py-14">
         <div className="max-w-6xl mx-auto px-5">
           <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.steelLight, letterSpacing: '0.1em' }} className="mb-6 text-center">FEATURED BRANDS WE SUPPLY</div>
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
