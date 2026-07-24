@@ -750,16 +750,59 @@ export default function App() {const [page, setPage] = useState('home');
       <EyebrowLabel>Get In Touch</EyebrowLabel>
       <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 32, color: C.charcoal, fontWeight: 600, marginBottom: 32 }}>Talk to our technical team</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div className="flex flex-col gap-6">
-          {[[Phone, 'Call or text', '0704 364 7182 / 0905 845 5496'], [Mail, 'Email', 'moscotech22@gmail.com'], [MapPin, 'Warehouse', 'Building Materials, Mile 3, Port Harcourt, Rivers State'], [MessageCircle, 'Business hours', 'Mon–Sat, 8:00 AM – 6:00 PM']].map(([Icon, label, val], i) => (
-            <div key={i} className="flex items-start gap-3">
-              <div style={{ width: 38, height: 38, background: C.navy }} className="flex items-center justify-center shrink-0"><Icon size={18} color={C.cream} /></div>
+        <div className="flex flex-col gap-6"><div className="max-w-6xl mx-auto px-5 py-16">
+      <EyebrowLabel>Get In Touch</EyebrowLabel>
+      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 32, color: C.charcoal, fontWeight: 600, marginBottom: 20 }}>Talk to our technical team</h1>
+      <div className="flex flex-wrap gap-3 mb-10">
+        <a href="https://wa.me/2347043647182?text=Hi%20Mosco%2C%20I%27d%20like%20to%20request%20a%20quote." target="_blank" rel="noopener noreferrer" className="px-6 py-3 flex items-center gap-2" style={{ background: C.orange, color: C.white, fontFamily: FONT_MONO, fontSize: 12.5, letterSpacing: '0.08em' }}>
+          <MessageCircle size={15} /> CHAT ON WHATSAPP
+        </a>
+        <a href="tel:+2347043647182" className="px-6 py-3 flex items-center gap-2" style={{ border: `1px solid ${C.navy}`, color: C.navy, fontFamily: FONT_MONO, fontSize: 12.5, letterSpacing: '0.08em' }}>
+          <Phone size={15} /> CALL NOW
+        </a>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div>
+          <div className="flex flex-col gap-6 mb-10">
+            <a href="tel:+2347043647182" className="flex items-start gap-3">
+              <div style={{ width: 38, height: 38, background: C.navy }} className="flex items-center justify-center shrink-0"><Phone size={18} color={C.cream} /></div>
               <div>
-                <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.steel, letterSpacing: '0.05em' }}>{label.toUpperCase()}</div>
-                <div style={{ fontFamily: FONT_BODY, fontSize: 15, color: C.charcoal }}>{val}</div>
+                <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.steel, letterSpacing: '0.05em' }}>CALL OR TEXT</div>
+                <div style={{ fontFamily: FONT_BODY, fontSize: 15, color: C.charcoal }}>0704 364 7182 / 0905 845 5496</div>
+              </div>
+            </a>
+            <a href="mailto:moscotech22@gmail.com" className="flex items-start gap-3">
+              <div style={{ width: 38, height: 38, background: C.navy }} className="flex items-center justify-center shrink-0"><Mail size={18} color={C.cream} /></div>
+              <div>
+                <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.steel, letterSpacing: '0.05em' }}>EMAIL</div>
+                <div style={{ fontFamily: FONT_BODY, fontSize: 15, color: C.charcoal }}>moscotech22@gmail.com</div>
+              </div>
+            </a>
+            <div className="flex items-start gap-3">
+              <div style={{ width: 38, height: 38, background: C.navy }} className="flex items-center justify-center shrink-0"><MapPin size={18} color={C.cream} /></div>
+              <div>
+                <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.steel, letterSpacing: '0.05em' }}>WAREHOUSE</div>
+                <div style={{ fontFamily: FONT_BODY, fontSize: 15, color: C.charcoal }}>Building Materials, Mile 3, Port Harcourt, Rivers State</div>
               </div>
             </div>
-          ))}
+            <div className="flex items-start gap-3">
+              <div style={{ width: 38, height: 38, background: C.navy }} className="flex items-center justify-center shrink-0"><MessageCircle size={18} color={C.cream} /></div>
+              <div>
+                <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.steel, letterSpacing: '0.05em' }}>BUSINESS HOURS</div>
+                <div style={{ fontFamily: FONT_BODY, fontSize: 15, color: C.charcoal }}>Mon–Sat, 8:00 AM – 6:00 PM</div>
+              </div>
+            </div>
+          </div>
+          <div style={{ border: `1px solid ${C.steelLight}` }}>
+            <iframe
+              title="Mosco Technical and Safety Tools location"
+              width="100%"
+              height="240"
+              style={{ border: 0, display: 'block' }}
+              loading="lazy"
+              src="https://www.google.com/maps?q=Building+Materials+Market,+Mile+3,+Port+Harcourt,+Rivers+State,+Nigeria&output=embed"
+            />
+          </div>
         </div>
         <form onSubmit={(e) => { e.preventDefault(); alert('Message sent — we\'ll get back to you shortly.'); }} className="flex flex-col gap-4">
           <input required placeholder="Your name" className="px-3 py-2.5 outline-none" style={{ border: `1px solid ${C.steelLight}`, fontFamily: FONT_BODY, fontSize: 14, background: C.paper }} />
