@@ -774,7 +774,7 @@ export default function App() {const [page, setPage] = useState('home');
   const Contact = () => (
     <div className="max-w-6xl mx-auto px-5 py-16">
       <EyebrowLabel>Get In Touch</EyebrowLabel>
-      <h1 style={{ ... marginBottom: 20 }}>Talk to our technical team</h1>
+      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 32, color: C.charcoal, fontWeight: 600, marginBottom: 20 }}>Talk to our technical team</h1>
       <div className="flex flex-wrap gap-3 mb-10">
         <a href="https://wa.me/2347043647182?text=Hi%20Mosco%2C%20I%27d%20like%20to%20request%20a%20quote." target="_blank" rel="noopener noreferrer" className="px-6 py-3 flex items-center gap-2" style={{ background: C.orange, color: C.white, fontFamily: FONT_MONO, fontSize: 12.5, letterSpacing: '0.08em' }}>
           <MessageCircle size={15} /> CHAT ON WHATSAPP
