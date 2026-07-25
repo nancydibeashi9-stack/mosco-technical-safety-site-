@@ -193,8 +193,21 @@ export default function App() {const [page, setPage] = useState('home');
   const selectedProduct = PRODUCTS.find((p) => p.id === selectedId);
 
   const placeOrder = (e) => {
+  const placeOrder = (e) => {
     e.preventDefault();
     const no = 'MTS-' + Math.floor(100000 + Math.random() * 900000);
+    const itemLines = cartItems.map((item) => `- ${item.name} x${item.qty} (${formatPrice(item.price * item.qty)})`).join('\n');
+    const message =
+      `New Order Request ${no}\n\n` +
+      `${itemLines}\n\n` +
+      `Total: ${formatPrice(cartTotal)}\n\n` +
+      `Name: ${form.name}\n` +
+      `Phone: ${form.phone}\n` +
+      `Email: ${form.email}\n` +
+      `Delivery Address: ${form.address}, ${form.city}\n` +
+      (form.notes ? `Notes: ${form.notes}\n` : '');
+    const waUrl = `https://wa.me/2347043647182?text=${encodeURIComponent(message)}`;
+    window.open(waUrl, '_blank');
     setOrderNo(no);
     setCart({});
     go('confirmation');
@@ -655,15 +668,7 @@ export default function App() {const [page, setPage] = useState('home');
                 className="w-full mt-1 px-3 py-2.5 outline-none" style={{ border: `1px solid ${C.steelLight}`, fontFamily: FONT_BODY, fontSize: 14, background: C.paper }} />
             </div>
 
-            <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.orangeDark, letterSpacing: '0.1em' }} className="mt-4">PAYMENT METHOD</div>
-            <div className="flex flex-col gap-2">
-              {['Cash on Delivery', 'Bank Transfer', 'GCash'].map((m) => (
-                <label key={m} className="flex items-center gap-2 px-3 py-2.5" style={{ border: `1px solid ${form.payment === m ? C.orange : C.steelLight}`, cursor: 'pointer' }}>
-                  <input type="radio" name="payment" checked={form.payment === m} onChange={() => setForm({ ...form, payment: m })} />
-                  <span style={{ fontFamily: FONT_BODY, fontSize: 13.5, color: C.charcoal }}>{m}</span>
-                </label>
-              ))}
-            </div><div>
+            <div>
               <label style={{ fontFamily: FONT_BODY, fontSize: 12.5, color: C.charcoal }}>Order notes (optional)</label>
               <textarea value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} rows={3}
                 className="w-full mt-1 px-3 py-2.5 outline-none" style={{ border: `1px solid ${C.steelLight}`, fontFamily: FONT_BODY, fontSize: 14, background: C.paper }} />
@@ -671,7 +676,7 @@ export default function App() {const [page, setPage] = useState('home');
 
             <button type="submit" className="mt-4 py-3.5 flex items-center justify-center gap-2"
               style={{ background: C.orange, color: C.white, fontFamily: FONT_MONO, fontSize: 13, letterSpacing: '0.08em' }}>
-              PLACE ORDER <ArrowRight size={15} />
+              SEND ORDER REQUEST <MessageCircle size={15} />
             </button>
           </form>
 
@@ -709,7 +714,7 @@ export default function App() {const [page, setPage] = useState('home');
       <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, color: C.charcoal, fontWeight: 600 }}>Thanks, we've got your order.</h1>
       <p style={{ fontFamily: FONT_MONO, fontSize: 15, color: C.navy, marginTop: 12, fontWeight: 700 }}>{orderNo}</p>
       <p style={{ fontFamily: FONT_BODY, fontSize: 14, color: C.steel, marginTop: 12, lineHeight: 1.6 }}>
-        We'll text and email you a confirmation with delivery timing shortly. Save your order number for reference.
+        We've opened WhatsApp with your order details. Send the message and our team will confirm pricing, payment and delivery with you directly. Save your order number for reference.
       </p>
       <button onClick={() => go('shop')} className="mt-8 px-6 py-3" style={{ background: C.navy, color: C.white, fontFamily: FONT_MONO, fontSize: 12, letterSpacing: '0.08em' }}>
         CONTINUE SHOPPING
