@@ -193,7 +193,6 @@ export default function App() {const [page, setPage] = useState('home');
   const selectedProduct = PRODUCTS.find((p) => p.id === selectedId);
 
   const placeOrder = (e) => {
-  const placeOrder = (e) => {
     e.preventDefault();
     const no = 'MTS-' + Math.floor(100000 + Math.random() * 900000);
     const itemLines = cartItems.map((item) => `- ${item.name} x${item.qty} (${formatPrice(item.price * item.qty)})`).join('\n');
