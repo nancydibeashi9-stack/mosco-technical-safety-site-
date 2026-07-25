@@ -213,7 +213,7 @@ export default function App() {const [page, setPage] = useState('home');
         </button>
 
         <nav className="hidden md:flex items-center gap-7">
-          {[['home', 'Home'], ['shop', 'Shop'], ['about', 'About'], ['contact', 'Contact']].map(([id, label]) => (
+          {[['home', 'Home'], ['shop', 'Shop'], ['gallery', 'Gallery'], ['about', 'About'], ['contact', 'Contact']].map(([id, label]) => (
             <button
               key={id}
               onClick={() => { setActiveCat('all'); go(id); }}
@@ -243,7 +243,7 @@ export default function App() {const [page, setPage] = useState('home');
       </div>
       {menuOpen && (
         <div className="md:hidden px-5 pb-4 flex flex-col gap-3" style={{ borderTop: `1px solid rgba(255,255,255,0.1)` }}>
-          {[['home', 'Home'], ['shop', 'Shop'], ['about', 'About'], ['contact', 'Contact']].map(([id, label]) => (
+          {[['home', 'Home'], ['shop', 'Shop'], ['gallery', 'Gallery'], ['about', 'About'], ['contact', 'Contact']].map(([id, label]) => (
             <button key={id} onClick={() => { setActiveCat('all'); go(id); }} className="text-left pt-3"
               style={{ fontFamily: FONT_MONO, fontSize: 13, color: C.steelLight, letterSpacing: '0.06em' }}>
               {label.toUpperCase()}
@@ -743,7 +743,33 @@ export default function App() {const [page, setPage] = useState('home');
         </div>
       </section>
     </div>);
-
+/* ------------------------ GALLERY ------------------------ */
+  const Gallery = () => (
+    <div className="max-w-6xl mx-auto px-5 py-16">
+      <EyebrowLabel>Our Stock</EyebrowLabel>
+      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 32, color: C.charcoal, fontWeight: 600, marginBottom: 12 }}>Gallery</h1>
+      <p style={{ fontFamily: FONT_BODY, fontSize: 15, color: C.steel, marginBottom: 32, maxWidth: 560 }}>
+        A look at real stock and shipments moving through Mosco Technical and Safety Tools.
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          ['https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/gallery-1.jpg', 'Paint stock, container-loaded'],
+          ['https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/gallery-2.jpg', 'Combination wrench set'],
+          ['https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/gallery-3.jpg', 'Tool case, fully kitted'],
+          ['https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/gallery-4.jpg', 'Welding electrode stock'],
+          ['https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/gallery-5.jpg', 'Incoming shipment, port side'],
+          ['https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/gallery-6.jpg', 'Lifting slings and rigging gear'],
+        ].map(([src, caption], i) => (
+          <div key={i} style={{ border: `1px solid ${C.steelLight}` }}>
+            <img src={src} alt={caption} style={{ width: '100%', height: 220, objectFit: 'cover', display: 'block' }} />
+            <div className="px-3 py-2.5" style={{ background: C.paper }}>
+              <span style={{ fontFamily: FONT_MONO, fontSize: 11.5, color: C.steel }}>{caption}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
   /* ------------------------ CONTACT ------------------------ */
   const Contact = () => (
     <div className="max-w-6xl mx-auto px-5 py-16">
@@ -816,7 +842,7 @@ export default function App() {const [page, setPage] = useState('home');
     </div>
   );
 
-  const PAGES = { home: Home, shop: Shop, product: ProductDetail, checkout: Checkout, confirmation: Confirmation, about: About, contact: Contact };
+  const PAGES = { home: Home, shop: Shop, gallery: Gallery, product: ProductDetail, checkout: Checkout, confirmation: Confirmation, about: About, contact: Contact };
   const CurrentPage = PAGES[page] || Home;
 
   return (
