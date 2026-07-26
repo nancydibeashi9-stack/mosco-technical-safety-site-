@@ -544,6 +544,29 @@ export default function App() {
         </div>
       </section>
 
+      <section className="max-w-4xl mx-auto px-5 py-16">
+        <EyebrowLabel>Questions</EyebrowLabel>
+        <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, color: C.charcoal, fontWeight: 600, marginBottom: 32 }}>Frequently Asked Questions</h2>
+        <div className="flex flex-col gap-3">
+          {[
+            ['Do you deliver nationwide?', 'Yes. We deliver anywhere in Nigeria from our base in Mile 3, Port Harcourt. Delivery timing depends on your location and will be confirmed on WhatsApp when you place an order.'],
+            ['Is there a minimum order quantity?', 'No minimum order is required. We supply single items as well as bulk orders for contractors, fabrication companies and site procurement.'],
+            ['How do I place an order?', "Browse the shop, add items to your cart, and fill in the checkout form. This opens WhatsApp with your order details pre-filled \u2014 send the message and our team will confirm pricing, payment and delivery with you directly."],
+            ['What payment methods do you accept?', "We accept bank transfer and cash on delivery. Payment details are shared and confirmed directly on WhatsApp once you send your order request \u2014 nothing is charged on the website itself."],
+            ['Are your products genuine?', 'Yes, all products listed are genuine stock we can pull and ship \u2014 no ghost inventory. We work with trusted brands including Harris, Maxmech, Yawata, Toyo and Kolor Kut.'],
+            ['Can I get bulk or wholesale pricing?', "Yes. Contact us on WhatsApp or by phone with your required quantities and we'll work out competitive bulk pricing for contractors and companies."],
+          ].map(([q, a], i) => (
+            <details key={i} className="group" style={{ background: C.paper, border: `1px solid ${C.steelLight}` }}>
+              <summary className="px-5 py-4 flex items-center justify-between cursor-pointer list-none" style={{ fontFamily: FONT_DISPLAY, fontSize: 15, color: C.charcoal, fontWeight: 500 }}>
+                {q}
+                <ChevronRight size={16} color={C.orange} className="group-open:rotate-90 transition-transform shrink-0 ml-3" />
+              </summary>
+              <p className="px-5 pb-4" style={{ fontFamily: FONT_BODY, fontSize: 13.5, color: C.steel, lineHeight: 1.6 }}>{a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       <section className="max-w-6xl mx-auto px-5 pb-16">
         <EyebrowLabel>Find Us</EyebrowLabel>
         <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, color: C.charcoal, fontWeight: 600, marginBottom: 20 }}>Our Location</h2>
