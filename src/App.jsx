@@ -227,10 +227,10 @@ export default function App() {const [page, setPage] = useState('home');
     <header style={{ background: C.navyDark, borderBottom: `3px solid ${C.orange}` }} className="sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
         <button onClick={() => go('home')} className="flex items-center gap-2.5">
-          <img src="https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/logo.jpg" alt="Mosco Technical and Safety Tools" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 4 }} />
+          <img src="https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/logo.jpg" alt="Wat Mosco Technical Services" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 4 }} />
           <div className="text-left leading-none">
-            <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, color: C.white, fontWeight: 600, letterSpacing: '0.02em' }}>MOSCO</div>
-            <div style={{ fontFamily: FONT_MONO, fontSize: 8.5, color: C.orange, letterSpacing: '0.15em' }}>TECHNICAL &amp; SAFETY TOOLS</div>
+            <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, color: C.white, fontWeight: 600, letterSpacing: '0.02em' }}>WAT MOSCO</div>
+            <div style={{ fontFamily: FONT_MONO, fontSize: 8.5, color: C.orange, letterSpacing: '0.15em' }}TECHNICAL SERVICES</div>
           </div>
         </button>
 
@@ -311,7 +311,7 @@ export default function App() {const [page, setPage] = useState('home');
         </div>
       </div>
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }} className="py-4 text-center">
-        <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.steel }}>© 2026 MOSCO TECHNICAL AND SAFETY TOOLS. ALL RIGHTS RESERVED.</span>
+        <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.steel }}>© 2026 WAT MOSCO TECHNICAL SERVICES. ALL RIGHTS RESERVED.</span>
       </div>
     </footer>
   );
@@ -742,7 +742,7 @@ export default function App() {const [page, setPage] = useState('home');
       </section>
       <section className="max-w-4xl mx-auto px-5 py-16">
         <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: C.charcoal, lineHeight: 1.8, marginBottom: 20 }}>
-          Mosco Technical and Safety Tools is a trusted supplier of industrial tools, safety equipment, welding materials, measuring instruments, and engineering accessories based in Mile 3, Port Harcourt. We serve contractors, fabrication companies, construction firms, oil and gas companies, and individual professionals across Nigeria.
+          Wat Mosco Technical Services is a trusted supplier of industrial tools, safety equipment, welding materials, measuring instruments, and engineering accessories based in Mile 3, Port Harcourt. We serve contractors, fabrication companies, construction firms, oil and gas companies, and individual professionals across Nigeria.
         </p>
         <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: C.charcoal, lineHeight: 1.8, marginBottom: 20 }}>
           We supply welding equipment, PPE, power tools, instrumentation, lifting equipment, and pipe fittings to businesses across Rivers State and beyond. Every listing on this site reflects stock we can actually pull and ship — no ghost inventory.
@@ -763,7 +763,7 @@ export default function App() {const [page, setPage] = useState('home');
       <EyebrowLabel>Our Stock</EyebrowLabel>
       <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 32, color: C.charcoal, fontWeight: 600, marginBottom: 12 }}>Gallery</h1>
       <p style={{ fontFamily: FONT_BODY, fontSize: 15, color: C.steel, marginBottom: 32, maxWidth: 560 }}>
-        A look at real stock and shipments moving through Mosco Technical and Safety Tools.
+        A look at real stock and shipments moving through Wat Mosco Technical Services.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
@@ -831,7 +831,7 @@ export default function App() {const [page, setPage] = useState('home');
           </div>
           <div style={{ border: `1px solid ${C.steelLight}` }}>
             <iframe
-              title="Mosco Technical and Safety Tools location"
+              title="Wat Mosco Technical Services location"
               width="100%"
               height="240"
               style={{ border: 0, display: 'block' }}
