@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import logoImg from './logo.jpg';
 import {
   Wrench, Gauge, Droplet, HardHat, AlertTriangle, Flame,
   ShoppingCart, X, Plus, Minus, Menu, ChevronRight, ChevronLeft,
@@ -35,7 +36,8 @@ const CATEGORIES = [
   { id: 'mt', code: 'MT', name: 'Measuring & Hand Tools', icon: Ruler, desc: 'Calipers, tapes, levels & fitting tools' },
   { id: 'mp', code: 'MP', name: 'Mechanical Parts & Bearings', icon: Settings, desc: 'Bearings & mechanical components' },
   { id: 'fs', code: 'FS', name: 'Fire Safety Equipment', icon: Flame, desc: 'Suppression systems & fire safety gear' },
-{ id: 'ca', code: 'CA', name: 'Consumables & Abrasives', icon: AlertTriangle, desc: 'Blasting media, abrasives & consumable supplies' },];
+  { id: 'ca', code: 'CA', name: 'Consumables & Abrasives', icon: AlertTriangle, desc: 'Blasting media, abrasives & consumable supplies' },
+];
 
 const PRODUCTS = [
   { id: 'FS-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260716-WA0061.jpg', cat: 'ppe', name: "Firefighter Safety Helmet with Heat-Reflective Neck Shield", size: 'Yellow Shell, Adjustable', price: 55000, stock: 'In Stock', specs: [['Shell Material', 'High-impact polymer'], ['Neck Shield', 'Aluminized heat-reflective foil'], ['Chin Strap', 'Adjustable buckle'], ['Use', 'Firefighting & high-heat environments']] },
@@ -47,7 +49,7 @@ const PRODUCTS = [
   { id: 'MT-004', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260711-WA0007.jpg', cat: 'mt', name: 'Powerwinder 100m Long Measure Tape', size: 'Fiberglass Blade, Fast Rewind', price: 55000, stock: 'In Stock', specs: [['Length', '100m / 330ft'], ['Blade', 'Fiberglass, non-conductive'], ['Rewind', 'Powerwinder fast rewind'], ['Brand', 'Stanley']] },
   { id: 'PF-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260711-WA0014.jpg', cat: 'pf', name: 'Weld Neck Flange, 3-inch Class 600', size: 'Schedule 80, Carbon Steel', price: 48000, stock: 'In Stock', specs: [['Size', '3 inch'], ['Class', '600'], ['Schedule', '80'], ['Material', 'Carbon steel, A105']] },
   { id: 'PF-002', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260711-WA0016.jpg', cat: 'pf', name: 'Stainless Steel Strapping Coil', size: '1/2 inch, C204 EDP 13204', price: 35000, stock: 'In Stock', specs: [['Width', '1/2 inch'], ['Material', 'Stainless steel'], ['Part No.', 'C204 EDP 13204'], ['Use', 'Pipe & hose banding / clamping']] },
-{ id: 'MT-005', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/mt-005.jpg', cat: 'mt', name: 'Tolsen Insulated Combination Wrench Set', size: 'VDE 1000V Insulated, Cased', price: 170000, stock: 'In Stock', specs: [['Insulation', 'VDE 1000V rated'], ['Type', 'Open-end / combination spanners'], ['Case', 'Hard carry case included'], ['Brand', 'Tolsen']] },
+  { id: 'MT-005', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/mt-005.jpg', cat: 'mt', name: 'Tolsen Insulated Combination Wrench Set', size: 'VDE 1000V Insulated, Cased', price: 170000, stock: 'In Stock', specs: [['Insulation', 'VDE 1000V rated'], ['Type', 'Open-end / combination spanners'], ['Case', 'Hard carry case included'], ['Brand', 'Tolsen']] },
   { id: 'MT-006', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/mt-006.jpg', cat: 'mt', name: 'Tolsen Insulated Tool Kit', size: 'VDE 1000V, Ratchet & Socket Set', price: 280000, stock: 'In Stock', specs: [['Insulation', 'VDE 1000V rated'], ['Includes', 'Pliers, screwdrivers, ratchet, sockets'], ['Case', 'Hard carry case included'], ['Brand', 'Tolsen']] },
   { id: 'MT-007', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/mt-007.jpg', cat: 'mt', name: 'Stanley Wire Stripper', size: 'Adjustable, Model 84-214', price: 25000, stock: 'In Stock', specs: [['Adjustment', 'Slide-adjusts for various gauge wire'], ['Feature', 'Looping / bending hole'], ['Use', 'Cutting & stripping wire, appliance cords'], ['Brand', 'Stanley']] },
   { id: 'MT-008', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/mt-008.jpg', cat: 'mt', name: 'Stanley 23-Piece Combination Wrench Set', size: '6-32mm, Model STMT33650-8', price: 170000, stock: 'In Stock', specs: [['Pieces', '23'], ['Sizes', '6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 30, 32mm'], ['Type', 'Combination wrench'], ['Brand', 'Stanley']] },
@@ -57,7 +59,8 @@ const PRODUCTS = [
   { id: 'PF-003', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/pf-003.jpg', cat: 'pf', name: 'Eccentric Copper Tube Flaring Tool Kit', size: 'Includes Cutter & Dies, Cased', price: 200000, stock: 'In Stock', specs: [['Includes', 'Flaring tool, tube cutter, dies'], ['Use', 'Refrigeration & AC pipe work'], ['Case', 'Hard carry case included'], ['Material', 'Steel / aluminum']] },
   { id: 'MT-011', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/mt-011.jpg', cat: 'mt', name: 'Hex Bit Socket Set', size: '5/32" - 7/8", SAE, Cased', price: 350000, stock: 'In Stock', specs: [['Sizes', '5/32" to 7/8" (SAE)'], ['Type', 'Impact-rated hex driver bits'], ['Case', 'Hard carry case included'], ['Use', 'Industrial fastening']] },
   { id: 'PF-004', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/pf-004.jpg', cat: 'pf', name: 'Bronze Flanged Gate Valve', size: 'Model YQ25', price: 270000, stock: 'In Stock', specs: [['Material', 'Bronze / gunmetal'], ['Type', 'Flanged gate valve'], ['Operation', 'Handwheel'], ['Model', 'YQ25']] },
-  { id: 'CA-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ca-001.jpg', cat: 'ca', name: 'Garnet Abrasive Blasting Media', size: '25kg Bag', price: 46000, stock: 'In Stock', specs: [['Weight', '25kg per bag'], ['Type', 'Garnet abrasive'], ['Use', 'Sandblasting & surface preparation'], ['Origin', 'Product of India']] },];
+  { id: 'CA-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ca-001.jpg', cat: 'ca', name: 'Garnet Abrasive Blasting Media', size: '25kg Bag', price: 46000, stock: 'In Stock', specs: [['Weight', '25kg per bag'], ['Type', 'Garnet abrasive'], ['Use', 'Sandblasting & surface preparation'], ['Origin', 'Product of India']] },
+];
 
 const formatPrice = (n) => `\u20A6${n.toLocaleString('en-NG')}`;
 
@@ -86,7 +89,8 @@ function EyebrowLabel({ children, dark }) {
   return (
     <div
       className="inline-flex items-center gap-2 px-3 py-1 mb-4"
-      style={{fontFamily: FONT_MONO, fontSize: 11, letterSpacing: '0.12em',
+      style={{
+        fontFamily: FONT_MONO, fontSize: 11, letterSpacing: '0.12em',
         color: dark ? C.cream : C.orangeDark,
         border: `1px solid ${dark ? 'rgba(243,241,234,0.35)' : C.orange}`,
       }}
@@ -165,7 +169,8 @@ function ProductCard({ product, onView, onAdd }) {
 }
 
 /* ---------------------------------- MAIN APP ---------------------------------- */
-export default function App() {const [page, setPage] = useState('home');
+export default function App() {
+  const [page, setPage] = useState('home');
   const [activeCat, setActiveCat] = useState('all');
   const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState(null);
@@ -227,7 +232,7 @@ export default function App() {const [page, setPage] = useState('home');
     <header style={{ background: C.navyDark, borderBottom: `3px solid ${C.orange}` }} className="sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
         <button onClick={() => go('home')} className="flex items-center gap-2.5">
-          <img src="https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/logo.jpg" alt="Wat Mosco Technical Services" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 4 }} />
+          <img src={logoImg} alt="Wat Mosco Technical Services" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 4 }} />
           <div className="text-left leading-none">
             <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, color: C.white, fontWeight: 600, letterSpacing: '0.02em' }}>WAT MOSCO</div>
             <div style={{ fontFamily: FONT_MONO, fontSize: 8.5, color: C.orange, letterSpacing: '0.15em' }}>TECHNICAL SERVICES</div>
@@ -256,7 +261,8 @@ export default function App() {const [page, setPage] = useState('home');
                 style={{ width: 17, height: 17, borderRadius: '50%', background: C.orange, color: C.white, fontSize: 10, fontFamily: FONT_MONO }}
               >
                 {cartCount}
-              </span>)}
+              </span>
+            )}
           </button>
           <button className="md:hidden p-2" onClick={() => setMenuOpen((m) => !m)} aria-label="Menu">
             <Menu size={22} color={C.white} />
@@ -281,7 +287,7 @@ export default function App() {const [page, setPage] = useState('home');
     <footer style={{ background: C.navyDark }} className="mt-auto">
       <div className="max-w-6xl mx-auto px-5 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-          <div style={{ fontFamily: FONT_DISPLAY, fontSize: 18, color: C.white, fontWeight: 600 }}>MOSCO</div>
+          <div style={{ fontFamily: FONT_DISPLAY, fontSize: 18, color: C.white, fontWeight: 600 }}>WAT MOSCO</div>
           <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: C.steel, marginTop: 8, lineHeight: 1.6 }}>
             Technical and safety tools for industrial teams that can't afford downtime.
           </p>
@@ -335,7 +341,8 @@ export default function App() {const [page, setPage] = useState('home');
                 <div className="flex items-center gap-2 mt-2">
                   <button onClick={() => setQty(item.id, item.qty - 1)} style={{ border: `1px solid ${C.steelLight}` }} className="w-6 h-6 flex items-center justify-center"><Minus size={12} /></button>
                   <span style={{ fontFamily: FONT_MONO, fontSize: 13 }}>{item.qty}</span>
-                  <button onClick={() => setQty(item.id, item.qty + 1)} style={{ border: `1px solid ${C.steelLight}` }} className="w-6 h-6 flex items-center justify-center"><Plus size={12} /></button><button onClick={() => removeFromCart(item.id)} style={{ fontFamily: FONT_MONO, fontSize: 10, color: C.orangeDark }} className="ml-auto">REMOVE</button>
+                  <button onClick={() => setQty(item.id, item.qty + 1)} style={{ border: `1px solid ${C.steelLight}` }} className="w-6 h-6 flex items-center justify-center"><Plus size={12} /></button>
+                  <button onClick={() => removeFromCart(item.id)} style={{ fontFamily: FONT_MONO, fontSize: 10, color: C.orangeDark }} className="ml-auto">REMOVE</button>
                 </div>
               </div>
               <div style={{ fontFamily: FONT_MONO, fontSize: 13, color: C.navy, fontWeight: 700 }}>{formatPrice(item.price * item.qty)}</div>
@@ -362,12 +369,12 @@ export default function App() {const [page, setPage] = useState('home');
   const Home = () => (
     <>
       <section
-  style={{
-    backgroundImage: `linear-gradient(rgba(15,36,56,0.90), rgba(15,36,56,0.94)), url('https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/hero-bg.jpg')`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  }}
->
+        style={{
+          backgroundImage: `linear-gradient(rgba(15,36,56,0.90), rgba(15,36,56,0.94)), url('https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/hero-bg.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         <div className="max-w-6xl mx-auto px-5 py-20 md:py-28">
           <EyebrowLabel dark>Industrial Supply · Port Harcourt</EyebrowLabel>
           <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 'clamp(36px,6vw,60px)', color: C.white, fontWeight: 600, lineHeight: 1.05, maxWidth: 760 }}>
@@ -420,7 +427,8 @@ export default function App() {const [page, setPage] = useState('home');
               style={{ background: C.paper, border: `1px solid ${C.steelLight}` }}
             >
               <div className="flex items-center justify-between mb-4">
-                <div style={{ width: 42, height: 42, background: C.navy }} className="flex items-center justify-center"><c.icon size={20} color={C.cream} />
+                <div style={{ width: 42, height: 42, background: C.navy }} className="flex items-center justify-center">
+                  <c.icon size={20} color={C.cream} />
                 </div>
                 <span style={{ fontFamily: FONT_MONO, fontSize: 10, color: C.steel }}>{c.code}</span>
               </div>
@@ -472,7 +480,7 @@ export default function App() {const [page, setPage] = useState('home');
         </div>
       </section>
 
-     <section style={{ background: C.cream }} className="py-16">
+      <section style={{ background: C.cream }} className="py-16">
         <div className="max-w-6xl mx-auto px-5">
           <EyebrowLabel>What We Offer</EyebrowLabel>
           <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, color: C.charcoal, fontWeight: 600, marginBottom: 32 }}>Our Services</h2>
@@ -501,7 +509,9 @@ export default function App() {const [page, setPage] = useState('home');
             </a>
           </div>
         </div>
-      </section> <section style={{ background: C.navyDark }} className="py-14">
+      </section>
+
+      <section style={{ background: C.navyDark }} className="py-14">
         <div className="max-w-6xl mx-auto px-5">
           <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.steelLight, letterSpacing: '0.1em' }} className="mb-6 text-center">FEATURED BRANDS WE SUPPLY</div>
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
@@ -517,9 +527,11 @@ export default function App() {const [page, setPage] = useState('home');
         <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, color: C.charcoal, fontWeight: 600, marginBottom: 32 }}>Testimonials</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            ['Chuka O.', 'Site Engineer, Port Harcourt', 'Mosco always has the fitting or gauge we need in stock. Delivery to site has been fast and reliable every time.'],
-            ['Blessing A.', 'Procurement, Local Contractor', 'Good prices and genuine products. Their team on WhatsApp responds quickly whenever we need a quote.'],
-            ['Emeka N.', 'Workshop Owner', "We've bought welding equipment and PPE from Mosco for over a year now. Never disappointed with quality."],
+            ['Chinedu Okafor', 'Verified Customer', 'Excellent service and quality products. I got my safety equipment from Wat Mosco Technical Services and I was impressed with the quality. Their customer service is also very good. Highly recommended.'],
+            ['David Williams', 'Verified Customer', 'Reliable store for technical and safety tools. They have a wide range of products and their prices are reasonable. Delivery was smooth and communication was easy.'],
+            ['Emmanuel Eze', 'Verified Customer', "Wat Mosco Technical Services is a trusted supplier. The tools I purchased were exactly as described and the team was helpful throughout the process. I'll definitely buy again."],
+            ['Ibrahim Musa', 'Verified Customer', 'Great experience shopping with Wat Mosco. Quality safety materials, fast response, and professional service. A good place for contractors and companies looking for dependable tools.'],
+            ['Precious Nwankwo', 'Verified Customer', 'I recommend Wat Mosco Technical Services to anyone looking for durable technical tools and safety equipment. Their products are quality and their service is top-notch.'],
           ].map(([name, role, quote], i) => (
             <div key={i} className="p-5" style={{ background: C.paper, border: `1px solid ${C.steelLight}` }}>
               <div className="flex gap-0.5 mb-3">
@@ -528,9 +540,9 @@ export default function App() {const [page, setPage] = useState('home');
               <p style={{ fontFamily: FONT_BODY, fontSize: 13.5, color: C.charcoal, lineHeight: 1.6, fontStyle: 'italic' }}>"{quote}"</p>
               <div style={{ fontFamily: FONT_DISPLAY, fontSize: 14, color: C.navy, marginTop: 14 }}>{name}</div>
               <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.steel }}>{role}</div>
-            </div>))}
+            </div>
+          ))}
         </div>
-        <p style={{ fontFamily: FONT_BODY, fontSize: 11.5, color: C.steel, marginTop: 12 }}>Sample testimonials shown — swap in real customer reviews any time.</p>
       </section>
 
       <section className="max-w-6xl mx-auto px-5 pb-16">
@@ -538,7 +550,7 @@ export default function App() {const [page, setPage] = useState('home');
         <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, color: C.charcoal, fontWeight: 600, marginBottom: 20 }}>Our Location</h2>
         <div style={{ border: `1px solid ${C.steelLight}` }}>
           <iframe
-            title="Mosco Technical and Safety Tools location"
+            title="Wat Mosco Technical Services location"
             width="100%"
             height="320"
             style={{ border: 0, display: 'block' }}
@@ -607,7 +619,8 @@ export default function App() {const [page, setPage] = useState('home');
           <div className="flex items-center justify-center" style={{ height: 360, background: C.navy, backgroundImage: `linear-gradient(135deg, ${C.navy}, ${C.navyDark})`, overflow: 'hidden' }}>
             {selectedProduct.img ? (
               <img src={selectedProduct.img} alt={selectedProduct.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            ) : (cat && <cat.icon size={90} color={C.cream} strokeWidth={1.2} />
+            ) : (
+              cat && <cat.icon size={90} color={C.cream} strokeWidth={1.2} />
             )}
           </div>
           <div>
@@ -720,7 +733,7 @@ export default function App() {const [page, setPage] = useState('home');
         <Check size={28} color={C.white} />
       </div>
       <EyebrowLabel>Order Received</EyebrowLabel>
-      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, color: C.charcoal, fontWeight: 600 }}>Thanks, we've got your order.</h1>
+      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, color: C.charcoal, fontWeight: 600 }}>Order request sent.</h1>
       <p style={{ fontFamily: FONT_MONO, fontSize: 15, color: C.navy, marginTop: 12, fontWeight: 700 }}>{orderNo}</p>
       <p style={{ fontFamily: FONT_BODY, fontSize: 14, color: C.steel, marginTop: 12, lineHeight: 1.6 }}>
         We've opened WhatsApp with your order details. Send the message and our team will confirm pricing, payment and delivery with you directly. Save your order number for reference.
@@ -756,8 +769,10 @@ export default function App() {const [page, setPage] = useState('home');
           ))}
         </div>
       </section>
-    </div>);
-/* ------------------------ GALLERY ------------------------ */
+    </div>
+  );
+
+  /* ------------------------ GALLERY ------------------------ */
   const Gallery = () => (
     <div className="max-w-6xl mx-auto px-5 py-16">
       <EyebrowLabel>Our Stock</EyebrowLabel>
@@ -784,6 +799,7 @@ export default function App() {const [page, setPage] = useState('home');
       </div>
     </div>
   );
+
   /* ------------------------ CONTACT ------------------------ */
   const Contact = () => (
     <div className="max-w-6xl mx-auto px-5 py-16">
@@ -866,4 +882,4 @@ export default function App() {const [page, setPage] = useState('home');
       {cartOpen && <CartDrawer />}
     </div>
   );
-                           }
+}
