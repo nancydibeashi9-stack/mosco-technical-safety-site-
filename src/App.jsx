@@ -230,7 +230,7 @@ export default function App() {const [page, setPage] = useState('home');
           <img src="https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/logo.jpg" alt="Wat Mosco Technical Services" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 4 }} />
           <div className="text-left leading-none">
             <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, color: C.white, fontWeight: 600, letterSpacing: '0.02em' }}>WAT MOSCO</div>
-            <div style={{ fontFamily: FONT_MONO, fontSize: 8.5, color: C.orange, letterSpacing: '0.15em' }}TECHNICAL SERVICES</div>
+            <div style={{ fontFamily: FONT_MONO, fontSize: 8.5, color: C.orange, letterSpacing: '0.15em' }}>TECHNICAL SERVICES</div>
           </div>
         </button>
 
