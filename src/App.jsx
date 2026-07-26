@@ -626,14 +626,26 @@ export default function App() {
 
       {filteredProducts.length === 0 ? (
         <div className="py-20 text-center">
-          <p style={{ fontFamily: FONT_BODY, color: C.steel }}>No items match "{query}". Try a different search term.</p>
+          <p style={{ fontFamily: FONT_BODY, color: C.steel, marginBottom: 20 }}>No items match "{query}". Try a different search term, or ask us directly.</p>
+          <a href="https://wa.me/2347043647182?text=Hi%20Mosco%2C%20I%27m%20looking%20for%20a%20product%20I%20couldn%27t%20find%20on%20your%20site." target="_blank" rel="noopener noreferrer" className="inline-flex px-6 py-3 items-center gap-2" style={{ background: C.orange, color: C.white, fontFamily: FONT_MONO, fontSize: 12.5, letterSpacing: '0.08em' }}>
+            <MessageCircle size={15} /> ASK ON WHATSAPP
+          </a>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {filteredProducts.map((p) => (
-            <ProductCard key={p.id} product={p} onView={(id) => { setSelectedId(id); go('product'); }} onAdd={addToCart} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {filteredProducts.map((p) => (
+              <ProductCard key={p.id} product={p} onView={(id) => { setSelectedId(id); go('product'); }} onAdd={addToCart} />
+            ))}
+          </div>
+          <div className="mt-14 p-6 text-center" style={{ background: C.cream, border: `1px solid ${C.steelLight}` }}>
+            <p style={{ fontFamily: FONT_DISPLAY, fontSize: 16, color: C.charcoal, marginBottom: 6 }}>Didn't find what you're looking for?</p>
+            <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: C.steel, marginBottom: 16 }}>Tell us what you need and we'll help you source it.</p>
+            <a href="https://wa.me/2347043647182?text=Hi%20Mosco%2C%20I%27m%20looking%20for%20a%20product%20I%20couldn%27t%20find%20on%20your%20site." target="_blank" rel="noopener noreferrer" className="inline-flex px-6 py-3 items-center gap-2" style={{ background: C.orange, color: C.white, fontFamily: FONT_MONO, fontSize: 12.5, letterSpacing: '0.08em' }}>
+              <MessageCircle size={15} /> ASK ON WHATSAPP
+            </a>
+          </div>
+        </>
       )}
     </div>
   );
