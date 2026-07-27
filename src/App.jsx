@@ -178,6 +178,78 @@ function ProductCard({ product, onView, onAdd }) {
 }
 
 /* ---------------------------------- MAIN APP ---------------------------------- */
+/* ---------------------------------- CHECKOUT (standalone, fixes keyboard focus loss) ---------------------------------- */
+function Checkout({ cartItems, cartTotal, form, setForm, placeOrder, go }) {
+  return (
+    <div className="max-w-6xl mx-auto px-5 py-12">
+      <EyebrowLabel>Secure Order</EyebrowLabel>
+      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 30, color: C.charcoal, fontWeight: 600, marginBottom: 32 }}>Checkout</h1>
+      {cartItems.length === 0 ? (
+        <div className="py-16 text-center">
+          <p style={{ fontFamily: FONT_BODY, color: C.steel, marginBottom: 16 }}>Your cart is empty.</p>
+          <button onClick={() => go('shop')} style={{ fontFamily: FONT_MONO, fontSize: 12, color: C.orangeDark }}>BROWSE CATALOG →</button>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
+          <form onSubmit={placeOrder} className="md:col-span-3 flex flex-col gap-4">
+            <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.orangeDark, letterSpacing: '0.1em' }}>DELIVERY DETAILS</div>
+            {[
+              ['name', 'Full name', true], ['phone', 'Phone number', true], ['email', 'Email address', true],
+            ].map(([key, label, req]) => (
+              <div key={key}>
+                <label style={{ fontFamily: FONT_BODY, fontSize: 12.5, color: C.charcoal }}>{label}{req && ' *'}</label>
+                <input required={req} value={form[key]} onChange={(e) => setForm({ ...form, [key]: e.target.value })}
+                  className="w-full mt-1 px-3 py-2.5 outline-none" style={{ border: `1px solid ${C.steelLight}`, fontFamily: FONT_BODY, fontSize: 14, background: C.paper }} />
+              </div>
+            ))}
+            <div>
+              <label style={{ fontFamily: FONT_BODY, fontSize: 12.5, color: C.charcoal }}>Delivery address *</label>
+              <input required value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })}
+                className="w-full mt-1 px-3 py-2.5 outline-none" style={{ border: `1px solid ${C.steelLight}`, fontFamily: FONT_BODY, fontSize: 14, background: C.paper }} />
+            </div>
+            <div>
+              <label style={{ fontFamily: FONT_BODY, fontSize: 12.5, color: C.charcoal }}>City *</label>
+              <input required value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })}
+                className="w-full mt-1 px-3 py-2.5 outline-none" style={{ border: `1px solid ${C.steelLight}`, fontFamily: FONT_BODY, fontSize: 14, background: C.paper }} />
+            </div>
+
+            <div>
+              <label style={{ fontFamily: FONT_BODY, fontSize: 12.5, color: C.charcoal }}>Order notes (optional)</label>
+              <textarea value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} rows={3}
+                className="w-full mt-1 px-3 py-2.5 outline-none" style={{ border: `1px solid ${C.steelLight}`, fontFamily: FONT_BODY, fontSize: 14, background: C.paper }} />
+            </div>
+
+            <button type="submit" className="mt-4 py-3.5 flex items-center justify-center gap-2"
+              style={{ background: C.orange, color: C.white, fontFamily: FONT_MONO, fontSize: 13, letterSpacing: '0.08em' }}>
+              SEND ORDER REQUEST <MessageCircle size={15} />
+            </button>
+          </form>
+
+          <div className="md:col-span-2">
+            <div style={{ background: C.paper, border: `1px solid ${C.steelLight}` }} className="p-5">
+              <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.orangeDark, letterSpacing: '0.1em' }} className="mb-4">ORDER SUMMARY</div>
+              {cartItems.map((item) => (
+                <div key={item.id} className="flex justify-between mb-2.5">
+                  <span style={{ fontFamily: FONT_BODY, fontSize: 13, color: C.charcoal }}>{item.name} × {item.qty}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: C.navy }}>{formatPrice(item.price * item.qty)}</span>
+                </div>
+              ))}
+              <div className="flex justify-between mt-4 pt-4" style={{ borderTop: `1px solid ${C.steelLight}` }}>
+                <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: C.steel }}>SHIPPING</span>
+                <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: C.navy }}>Calculated on confirmation</span>
+              </div>
+              <div className="flex justify-between mt-2">
+                <span style={{ fontFamily: FONT_MONO, fontSize: 14, color: C.charcoal, fontWeight: 700 }}>TOTAL</span>
+                <span style={{ fontFamily: FONT_MONO, fontSize: 18, color: C.navy, fontWeight: 700 }}>{formatPrice(cartTotal)}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function App() {
   const [page, setPage] = useState('home');
   const [activeCat, setActiveCat] = useState('all');
@@ -700,75 +772,7 @@ export default function App() {
     );
   };
 
-  /* ------------------------ CHECKOUT ------------------------ */
-  const Checkout = () => (
-    <div className="max-w-6xl mx-auto px-5 py-12">
-      <EyebrowLabel>Secure Order</EyebrowLabel>
-      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 30, color: C.charcoal, fontWeight: 600, marginBottom: 32 }}>Checkout</h1>
-      {cartItems.length === 0 ? (
-        <div className="py-16 text-center">
-          <p style={{ fontFamily: FONT_BODY, color: C.steel, marginBottom: 16 }}>Your cart is empty.</p>
-          <button onClick={() => go('shop')} style={{ fontFamily: FONT_MONO, fontSize: 12, color: C.orangeDark }}>BROWSE CATALOG →</button>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
-          <form onSubmit={placeOrder} className="md:col-span-3 flex flex-col gap-4">
-            <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.orangeDark, letterSpacing: '0.1em' }}>DELIVERY DETAILS</div>
-            {[
-              ['name', 'Full name', true], ['phone', 'Phone number', true], ['email', 'Email address', true],
-            ].map(([key, label, req]) => (
-              <div key={key}>
-                <label style={{ fontFamily: FONT_BODY, fontSize: 12.5, color: C.charcoal }}>{label}{req && ' *'}</label>
-                <input required={req} value={form[key]} onChange={(e) => setForm({ ...form, [key]: e.target.value })}
-                  className="w-full mt-1 px-3 py-2.5 outline-none" style={{ border: `1px solid ${C.steelLight}`, fontFamily: FONT_BODY, fontSize: 14, background: C.paper }} />
-              </div>
-            ))}
-            <div>
-              <label style={{ fontFamily: FONT_BODY, fontSize: 12.5, color: C.charcoal }}>Delivery address *</label>
-              <input required value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })}
-                className="w-full mt-1 px-3 py-2.5 outline-none" style={{ border: `1px solid ${C.steelLight}`, fontFamily: FONT_BODY, fontSize: 14, background: C.paper }} />
-            </div>
-            <div>
-              <label style={{ fontFamily: FONT_BODY, fontSize: 12.5, color: C.charcoal }}>City *</label>
-              <input required value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })}
-                className="w-full mt-1 px-3 py-2.5 outline-none" style={{ border: `1px solid ${C.steelLight}`, fontFamily: FONT_BODY, fontSize: 14, background: C.paper }} />
-            </div>
-
-            <div>
-              <label style={{ fontFamily: FONT_BODY, fontSize: 12.5, color: C.charcoal }}>Order notes (optional)</label>
-              <textarea value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} rows={3}
-                className="w-full mt-1 px-3 py-2.5 outline-none" style={{ border: `1px solid ${C.steelLight}`, fontFamily: FONT_BODY, fontSize: 14, background: C.paper }} />
-            </div>
-
-            <button type="submit" className="mt-4 py-3.5 flex items-center justify-center gap-2"
-              style={{ background: C.orange, color: C.white, fontFamily: FONT_MONO, fontSize: 13, letterSpacing: '0.08em' }}>
-              SEND ORDER REQUEST <MessageCircle size={15} />
-            </button>
-          </form>
-
-          <div className="md:col-span-2">
-            <div style={{ background: C.paper, border: `1px solid ${C.steelLight}` }} className="p-5">
-              <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.orangeDark, letterSpacing: '0.1em' }} className="mb-4">ORDER SUMMARY</div>
-              {cartItems.map((item) => (
-                <div key={item.id} className="flex justify-between mb-2.5">
-                  <span style={{ fontFamily: FONT_BODY, fontSize: 13, color: C.charcoal }}>{item.name} × {item.qty}</span>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: C.navy }}>{formatPrice(item.price * item.qty)}</span>
-                </div>
-              ))}
-              <div className="flex justify-between mt-4 pt-4" style={{ borderTop: `1px solid ${C.steelLight}` }}>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: C.steel }}>SHIPPING</span>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: C.navy }}>Calculated on confirmation</span>
-              </div>
-              <div className="flex justify-between mt-2">
-                <span style={{ fontFamily: FONT_MONO, fontSize: 14, color: C.charcoal, fontWeight: 700 }}>TOTAL</span>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 18, color: C.navy, fontWeight: 700 }}>{formatPrice(cartTotal)}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  /* Checkout moved outside App below, to fix keyboard/focus loss bug */
 
   /* ------------------------ CONFIRMATION ------------------------ */
   const Confirmation = () => (
@@ -912,7 +916,7 @@ export default function App() {
     </div>
   );
 
-  const PAGES = { home: Home, shop: Shop, gallery: Gallery, product: ProductDetail, checkout: Checkout, confirmation: Confirmation, about: About, contact: Contact };
+  const PAGES = { home: Home, shop: Shop, gallery: Gallery, product: ProductDetail, confirmation: Confirmation, about: About, contact: Contact };
   const CurrentPage = PAGES[page] || Home;
 
   return (
@@ -920,7 +924,11 @@ export default function App() {
       <Fonts />
       <Header />
       <main className="flex-1">
-        <CurrentPage />
+        {page === 'checkout' ? (
+          <Checkout cartItems={cartItems} cartTotal={cartTotal} form={form} setForm={setForm} placeOrder={placeOrder} go={go} />
+        ) : (
+          <CurrentPage />
+        )}
       </main>
       <Footer />
       {cartOpen && <CartDrawer />}
