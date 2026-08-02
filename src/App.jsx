@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import {
   Wrench, Gauge, Droplet, HardHat, AlertTriangle, Flame,
   ShoppingCart, X, Plus, Minus, Menu, ChevronRight, ChevronLeft,
-  Check, Phone, Mail, MapPin, MessageCircle, Search, ArrowRight, ShieldCheck, Truck, Zap, Package, Ruler, Settings, Facebook, Instagram, Star, BadgeCheck
+  Check, Phone, Mail, MapPin, MessageCircle, Search, ArrowRight, ShieldCheck, Truck, Zap, Plug, Package, Ruler, Settings, Facebook, Instagram, Star, BadgeCheck
 } from 'lucide-react';
 
 /* ---------------------------------- TOKENS ---------------------------------- */
@@ -36,6 +36,7 @@ const CATEGORIES = [
   { id: 'mp', code: 'MP', name: 'Mechanical Parts & Bearings', icon: Settings, desc: 'Bearings & mechanical components' },
   { id: 'fs', code: 'FS', name: 'Fire Safety Equipment', icon: Flame, desc: 'Suppression systems & fire safety gear' },
   { id: 'ca', code: 'CA', name: 'Consumables & Abrasives', icon: AlertTriangle, desc: 'Blasting media, abrasives & consumable supplies' },
+{ id: 'ee', code: 'EE', name: 'Electrical Equipment & Fittings', icon: Plug, desc: 'Industrial connectors, sockets & electrical fittings' },
 ];
 
 const PRODUCTS = [
@@ -69,6 +70,7 @@ const PRODUCTS = [
   { id: 'PF-005', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/pf-005.jpg', cat: 'pf', name: 'Trenton MCO 110 Outerwrap', size: '228mm x 12.19m', price: 170000, stock: 'In Stock', specs: [['Dimensions', '228mm x 12.19m'], ['Use', 'Pipe insulation outerwrap'], ['Brand', 'Trenton'], ['Type', 'MCO 110']] },
   { id: 'WC-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/wc-001.jpg', cat: 'wc', name: 'Samurai E7018 Welding Electrodes', size: '20kg Box', price: 20000, stock: 'In Stock', specs: [['Classification', 'E7018'], ['Use', 'Arc welding, mild steel'], ['Weight', '20kg per box'], ['Brand', 'Samurai Welding Materials']] },
   { id: 'MT-014', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/mt-014.jpg', cat: 'mt', name: 'Matco Tools BDP266A Deep Impact Socket', size: '3/8" Drive', price: 47000, stock: 'In Stock', specs: [['Drive', '3/8 inch'], ['Type', 'Deep impact socket'], ['Use', 'High-torque applications'], ['Brand', 'Matco Tools']] },
+{ img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ee-001.jpg', cat: 'ee', name: 'Palazzoli 753126 Industrial Socket Outlet Multiplier', size: '4-Way, 2P+E, 16A, IP67', price: 55000, stock: 'In Stock', specs: [['Type', '4-way multi-socket splitter'], ['Rating', '16A, 220-250V, 2P+E'], ['Protection', 'IP67 weatherproof, dust-tight'], ['Use', 'Temporary power installations, sites & events']] },
 ];
 
 const formatPrice = (n) => `\u20A6${n.toLocaleString('en-NG')}`;
