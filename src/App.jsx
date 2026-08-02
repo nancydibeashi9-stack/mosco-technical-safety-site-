@@ -36,8 +36,8 @@ const CATEGORIES = [
   { id: 'mp', code: 'MP', name: 'Mechanical Parts & Bearings', icon: Settings, desc: 'Bearings & mechanical components' },
   { id: 'fs', code: 'FS', name: 'Fire Safety Equipment', icon: Flame, desc: 'Suppression systems & fire safety gear' },
   { id: 'ca', code: 'CA', name: 'Consumables & Abrasives', icon: AlertTriangle, desc: 'Blasting media, abrasives & consumable supplies' },
-{ id: 'ee', code: 'EE', name: 'Electrical Equipment & Fittings', icon: Plug, desc: 'Industrial connectors, sockets & electrical fittings' },
-];
+  { id: 'ee', code: 'EE', name: 'Electrical Equipment & Fittings', icon: Plug, desc: 'Industrial connectors, sockets & electrical fittings' },
+ ];
 
 const PRODUCTS = [
   { id: 'FS-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/IMG-20260716-WA0061.jpg', cat: 'ppe', name: "Firefighter Safety Helmet with Heat-Reflective Neck Shield", size: 'Yellow Shell, Adjustable', price: 55000, stock: 'In Stock', specs: [['Shell Material', 'High-impact polymer'], ['Neck Shield', 'Aluminized heat-reflective foil'], ['Chin Strap', 'Adjustable buckle'], ['Use', 'Firefighting & high-heat environments']] },
@@ -70,8 +70,13 @@ const PRODUCTS = [
   { id: 'PF-005', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/pf-005.jpg', cat: 'pf', name: 'Trenton MCO 110 Outerwrap', size: '228mm x 12.19m', price: 170000, stock: 'In Stock', specs: [['Dimensions', '228mm x 12.19m'], ['Use', 'Pipe insulation outerwrap'], ['Brand', 'Trenton'], ['Type', 'MCO 110']] },
   { id: 'WC-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/wc-001.jpg', cat: 'wc', name: 'Samurai E7018 Welding Electrodes', size: '20kg Box', price: 20000, stock: 'In Stock', specs: [['Classification', 'E7018'], ['Use', 'Arc welding, mild steel'], ['Weight', '20kg per box'], ['Brand', 'Samurai Welding Materials']] },
   { id: 'MT-014', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/mt-014.jpg', cat: 'mt', name: 'Matco Tools BDP266A Deep Impact Socket', size: '3/8" Drive', price: 47000, stock: 'In Stock', specs: [['Drive', '3/8 inch'], ['Type', 'Deep impact socket'], ['Use', 'High-torque applications'], ['Brand', 'Matco Tools']] },
-{ img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ee-001.jpg', cat: 'ee', name: 'Palazzoli 753126 Industrial Socket Outlet Multiplier', size: '4-Way, 2P+E, 16A, IP67', price: 55000, stock: 'In Stock', specs: [['Type', '4-way multi-socket splitter'], ['Rating', '16A, 220-250V, 2P+E'], ['Protection', 'IP67 weatherproof, dust-tight'], ['Use', 'Temporary power installations, sites & events']] },
-];
+  { id: 'EE-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ee-001.jpg', cat: 'ee', name: 'Palazzoli 753126 Industrial Socket Outlet Multiplier', size: '4-Way, 2P+E, 16A, IP67', price: 55000, stock: 'In Stock', specs: [['Type', '4-way multi-socket splitter'], ['Rating', '16A, 220-250V, 2P+E'], ['Protection', 'IP67 weatherproof, dust-tight'], ['Use', 'Temporary power installations, sites & events']] },
+  { id: 'EE-002', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ee-002.jpg', cat: 'ee', name: 'Brass Split-Bolt Cable Connector', size: 'Standard, Brass', price: 13000, stock: 'In Stock', specs: [['Material', 'Brass'], ['Use', 'Cable joining & earthing connections'], ['Type', 'Split-bolt clamp']] },
+  { id: 'EE-003', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ee-003.jpg', cat: 'ee', name: 'ABB 32A Industrial Socket, 3P+N', size: '220/380V-250/415V, IP67', price: 35000, stock: 'In Stock', specs: [['Rating', '32A, 220/380V-250/415V'], ['Configuration', '3P+N'], ['Protection', 'IP67'], ['Brand', 'ABB'], ['Origin', 'Made in Italy']] },
+  { id: 'EE-004', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ee-004.jpg', cat: 'ee', name: 'Hydraulic Pipe Clamp, Plastic', size: 'Green, Standard', price: 9000, stock: 'In Stock', specs: [['Material', 'Plastic'], ['Use', 'Securing hydraulic lines in industrial machinery']] },
+  { id: 'CA-006', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ca-006.jpg', cat: 'ca', name: 'Acetone Industrial Drum', size: '160kg, Kumho P&B Chemicals', price: 820000, stock: 'In Stock', specs: [['Weight', '160kg'], ['Brand', 'Kumho P&B Chemicals'], ['Origin', 'Made in Korea'], ['UN Number', 'UN 1090']] },
+  { id: 'PM-001', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/pm-001.jpg', cat: 'pm', name: 'Enerpac P392 Hydraulic Hand Pump', size: 'Two-Speed', price: 850000, stock: 'In Stock', specs: [['Brand', 'Enerpac'], ['Model', 'P392'], ['Speed', 'Two-speed'], ['Use', 'Portable hydraulic power for lifting & pressing tools']] },
+ ];
 
 const formatPrice = (n) => `\u20A6${n.toLocaleString('en-NG')}`;
 
