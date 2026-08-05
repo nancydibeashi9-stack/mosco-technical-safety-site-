@@ -416,6 +416,7 @@ export default function App() {
       </div>
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }} className="py-4 text-center">
         <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: C.steel }}>© 2026 WAT MOSCO TECHNICAL SERVICES. ALL RIGHTS RESERVED.</span>
+        <div style={{ fontFamily: FONT_MONO, fontSize: 10, color: C.steel, opacity: 0.6, marginTop: 4 }}>Website by Nancy Dibeashi</div>
       </div>
     </footer>
   );
@@ -833,6 +834,9 @@ export default function App() {
             </div>
           ))}
         </div>
+        <p style={{ fontFamily: FONT_BODY, fontSize: 12, color: C.steel, marginTop: 40, textAlign: 'center' }}>
+          Website built by Nancy Dibeashi
+        </p>
       </section>
     </div>
   );
