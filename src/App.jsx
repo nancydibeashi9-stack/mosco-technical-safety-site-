@@ -136,6 +136,16 @@ const PRODUCTS = [
 { id: 'PPE-012', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ppe-012.jpg', cat: 'ppe', name: 'Red Wing Pecos Safety Boot', size: 'Brown Leather', price: 210000, stock: 'In Stock', specs: [['Brand', 'Red Wing'], ['Model', 'Pecos'], ['Material', 'Leather']] },
 { id: 'CA-018', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ca-018.jpg', cat: 'ca', name: 'Markal B Paintstik Marker', size: 'Box', price: 45000, stock: 'In Stock', specs: [['Brand', 'Markal'], ['Type', 'Paint stick marker'], ['Features', 'Fade resistant, lead free, long lasting']] },
 { id: 'MP-003', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/mp-003.jpg', cat: 'mp', name: 'Grease Nipple Assortment Set', size: 'Boxed Set', price: 45000, stock: 'In Stock', specs: [['Type', 'Assorted grease nipples'], ['Packaging', 'Boxed set']] },
+{ id: 'FS-006', name: 'Fireman Safety Boot', price: 70000, category: 'fs', img: 'https://raw.githubusercontent.com/YOUR_REPO_PATH/fs-006.jpg' },
+{ id: 'CA-019', name: 'International Marine Paint (Pail)', price: 190000, category: 'ca', img: 'https://raw.githubusercontent.com/YOUR_REPO_PATH/ca-019.jpg' },
+{ id: 'MT-028', name: 'Diesel Measuring Can', price: 350000, category: 'mt', img: 'https://raw.githubusercontent.com/YOUR_REPO_PATH/mt-028.jpg' },
+{ id: 'PPE-013', name: 'Safety Jogger Canvas Shoe', price: 80000, category: 'ppe', img: 'https://raw.githubusercontent.com/YOUR_REPO_PATH/ppe-013.jpg' },
+{ id: 'MP-004', name: 'Swivel Joint Coupling', price: 40000, category: 'mp', img: 'https://raw.githubusercontent.com/YOUR_REPO_PATH/mp-004.jpg' },
+{ id: 'IG-004', name: 'NOV MD Totco All Purpose Fluid W15 (1L)', price: 180000, category: 'ig', img: 'https://raw.githubusercontent.com/YOUR_REPO_PATH/ig-004.jpg' },
+{ id: 'WC-005', name: 'Victor Cutting Torch', price: 270000, category: 'wc', img: 'https://raw.githubusercontent.com/YOUR_REPO_PATH/wc-005.jpg' },
+{ id: 'FS-007', name: 'Pains Wessex Lifesmoke MK9', price: 50000, category: 'fs', img: 'https://raw.githubusercontent.com/YOUR_REPO_PATH/fs-007.jpg' },
+{ id: 'PM-007', name: '12" Portable Industrial Axial Ventilation Blower Fan w/ Duct', price: 450000, category: 'pm', img: 'https://raw.githubusercontent.com/YOUR_REPO_PATH/pm-007.jpg' },
+{ id: 'PM-008', name: 'Industrial Centrifugal Water Pump w/ Electric Motor', price: 5200000, category: 'pm', img: 'https://raw.githubusercontent.com/YOUR_REPO_PATH/pm-008.jpg' },
 ];
 
 const formatPrice = (n) => `\u20A6${n.toLocaleString('en-NG')}`;
