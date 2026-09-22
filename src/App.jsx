@@ -146,7 +146,17 @@ const PRODUCTS = [
 { id: 'FS-007', name: 'Pains Wessex Lifesmoke MK9', price: 50000, category: 'fs', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/fs-007.jpg' },
 { id: 'PM-007', name: '12" Portable Industrial Axial Ventilation Blower Fan w/ Duct', price: 450000, category: 'pm', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/pm-007.jpg' },
 { id: 'PM-008', name: 'Industrial Centrifugal Water Pump w/ Electric Motor', price: 5200000, category: 'pm', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/pm-008.jpg' },
-  ];
+  { id: 'MT-029', name: 'Brass Socket Set', price: 1700000, category: 'mt', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/mt-029.jpg' },
+{ id: 'PPE-014', name: 'Get Star Weld Solar Powered Auto-Darkening Welding Helmet (GS-4008)', price: 65000, category: 'ppe', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ppe-014.jpg' },
+{ id: 'WC-006', name: 'Welding Contact Tips (Pack)', price: 15000, category: 'wc', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/wc-006.jpg' },
+{ id: 'WC-007', name: 'Get Star Weld Ceramic Cup for Argon (10pcs)', price: 12000, category: 'wc', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/wc-007.jpg' },
+{ id: 'IG-005', name: 'Argon Gas Regulator (Ar-191)', price: 85000, category: 'ig', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ig-005.jpg' },
+{ id: 'WC-008', name: 'Get Star Weld Argon (TIG) Welding Torch', price: 80000, category: 'wc', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/wc-008.jpg' },
+{ id: 'MT-030', name: 'Diesel Hydrometer', price: 60000, category: 'mt', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/mt-030.jpg' },
+{ id: 'IG-006', name: 'Victor Pressure Regulator Gauge', price: 85000, category: 'ig', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ig-006.jpg' },
+{ id: 'IG-007', name: 'WIKA 4" x ½" NPT Pressure Gauge', price: 32000, category: 'ig', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ig-007.jpg' },
+{ id: 'PM-009', name: 'Air Torque Wrench', price: 1800000, category: 'pm', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/pm-009.jpg' },
+];
 
 const formatPrice = (n) => `\u20A6${n.toLocaleString('en-NG')}`;
 
