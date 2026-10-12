@@ -156,6 +156,9 @@ const PRODUCTS = [
 { id: 'IG-006', name: 'Victor Pressure Regulator Gauge', price: 85000, category: 'ig', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ig-006.jpg' },
 { id: 'IG-007', name: 'WIKA 4" x ½" NPT Pressure Gauge', price: 32000, category: 'ig', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/ig-007.jpg' },
 { id: 'PM-009', name: 'Air Torque Wrench', price: 1800000, category: 'pm', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/pm-009.jpg' },
+{ id: 'MT-031', name: 'Stanley Tylon Measuring Tape (8m/26ft)', price: 22000, category: 'mt', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/mt-031.jpg' },
+{ id: 'RL-004', name: '2-Inch Ratchet Binding Belt', price: 13000, category: 'rl', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/rl-004.jpg' },
+{ id: 'MT-032', name: 'Industrial Sweeping Brush', price: 8000, category: 'mt', img: 'https://raw.githubusercontent.com/nancydibeashi9-stack/mosco-technical-safety-site-/main/mt-032.jpg' },
 ];
 
 const formatPrice = (n) => `\u20A6${n.toLocaleString('en-NG')}`;
